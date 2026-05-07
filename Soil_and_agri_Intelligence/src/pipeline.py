@@ -40,18 +40,13 @@ from typing import Any, Dict, Optional
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PATH SETUP
-# Ensure all sub-packages resolve correctly regardless of how the script is
-# invoked (python pipeline.py  vs  python -m src.pipeline).
+# Add src/ to sys.path so all sibling packages (crop_recommendation,
+# decision_orchestrator, llm_reasoner, disease_risk_model) resolve correctly
+# when this script is run directly:  python pipeline.py
 # ─────────────────────────────────────────────────────────────────────────────
 _SRC_DIR = os.path.dirname(os.path.abspath(__file__))
 if _SRC_DIR not in sys.path:
     sys.path.insert(0, _SRC_DIR)
-
-# crop_recommendation uses its own internal imports; add src/ to path so they
-# resolve when imported as a package from pipeline.py.
-_CROP_SRC = os.path.join(_SRC_DIR, "crop_recommendation", "src")
-if _CROP_SRC not in sys.path:
-    sys.path.insert(0, _CROP_SRC)
 
 from crop_recommendation.src import CropRecommender       # noqa: E402
 from decision_orchestrator import DecisionOrchestrator    # noqa: E402

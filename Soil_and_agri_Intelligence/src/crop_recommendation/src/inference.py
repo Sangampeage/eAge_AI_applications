@@ -28,10 +28,10 @@ from typing import Dict, Any, Union
 import joblib
 import numpy as np
 
-from schemas import SoilInput
-from validation import validate_input
-from preprocessing import load_encoders
-from model_wrapper import CropModel
+from .schemas import SoilInput
+from .validation import validate_input
+from .preprocessing import load_encoders
+from .model_wrapper import CropModel
 
 logger = logging.getLogger(__name__)
 

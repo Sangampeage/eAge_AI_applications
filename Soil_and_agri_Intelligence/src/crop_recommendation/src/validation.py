@@ -18,7 +18,7 @@ Raises ValueError with a descriptive, human-readable message on any failure.
 import logging
 from typing import Any, Dict
 
-from schemas import SoilInput
+from .schemas import SoilInput
 
 logger = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ SENSOR_THRESHOLDS: Dict[str, tuple] = {
     "K":           (0.0,   1000.0, "mg/kg"),
 
     # Soil pH (standard 0–14 scale; practical crop range 3.5–9.5)
-    "ph":          (3.5,   9.5,    "pH units"),
+    "ph":          (3.5,   9,    "pH units"),
 
     # Air / soil surface temperature (°C)
     "temperature": (-10.0, 60.0,   "°C"),
@@ -48,7 +48,7 @@ SENSOR_THRESHOLDS: Dict[str, tuple] = {
     "moisture":    (0.0,   100.0,  "%"),
 
     # Electrical conductivity (dS/m — above ~8 most crops fail)
-    "ec":          (0.0,   8.0,    "dS/m"),
+    "ec":          (0.0,   4000.0, "µS/cm")
 }
 
 # Valid soil types (lowercase for matching; extend as needed)
