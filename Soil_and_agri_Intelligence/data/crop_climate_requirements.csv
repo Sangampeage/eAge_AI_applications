@@ -1,0 +1,30 @@
+Crop_Name,T_Max_C,T_Min_C,T_Optimum_C,Rainfall_mm,Altitude_m_MSL
+Rice,40,20,30,1375,1000
+Maize,35,12,24,625,1500
+Sorghum,40,15,29,725,500
+Pearl millet,42,15,29,375,400
+Ragi,34,18,26,750,1500
+Wheat,32,10,21,875,1500
+Redgram,35,18,26,875,1000
+Bengalgram,30,15,22,800,1000
+Greengram,35,20,30,750,1000
+Blackgram,35,20,30,750,1000
+Groundnut,33,17,25,825,1000
+Castor,35,15,23,600,1000
+Gingely,35,18,26,500,1000
+Sunflower,34,15,24,625,1500
+Cotton,35,18,27,850,500
+Sugarcane,38,18,28,1100,750
+Tomato,32,15,23,750,1000
+Chillies,32,15,22,875,1000
+Brinjal,32,15,23,750,1000
+Bhendi,35,18,26,750,1000
+Onion,30,13,21,750,1500
+Cabbage,28,10,18,750,1500
+Cauliflower,28,12,18,750,1500
+Carrot,24,10,16,875,1500
+Beetroot,24,12,18,750,1500
+Radish,25,10,18,750,1500
+Potato,28,10,18,1375,2000
+Sweet potato,33,18,24,1000,1000
+Tapoica,35,20,27,1250,1000

@@ -1,0 +1,25 @@
+# Walkthrough: Vision Application (FACE_DIST_OBJ_APP)
+
+This guide explains how to run the Face Recognition, Pose Distance, and Object Detection dashboard.
+
+## 1. Start Image Reception
+The system relies on images being received from an external hardware device. Run the receiver script from the root directory.
+
+```bash
+# From eAge_AI_Applications root
+python receive_image.py
+```
+*Note: Check that the COM port in `receive_image.py` matches your device.*
+
+## 2. Launch the Dashboard
+Run the Streamlit app to analyze images in the `Images` folder.
+
+```bash
+# From eAge_AI_Applications root
+streamlit run FACE_DIST_OBJ_APP/streamlit_app.py
+```
+
+## 3. Usage
+- Use the sidebar to select between **Face Recognition**, **Pose Distance**, and **Object Detection**.
+- Select an image from the dropdown (fetched from the `Images` folder).
+- Click "Run Task" to see the AI analysis.

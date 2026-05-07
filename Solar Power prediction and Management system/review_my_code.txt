@@ -1,0 +1,13 @@
+Code Quality Review: Solar Power Prediction & Management
+=====================================================
+Status: Production-Ready / Advanced Prototype
+
+Core Reality:
+- Scientific Depth: Excellent. Integrating pvlib for physics-based solar calculations (zenith, azimuth, clear-sky) adds a layer of reliability that raw ML lacks.
+- Feature Engineering: Professional grade. The implementation of lag and rolling features (e.g., 3h, 6h, 24h windows) is essential for high-accuracy solar forecasting.
+- Pipeline Architecture: Very strong. The inference pipeline is modular, handles historical backfills, and uses UPSERT logic to maintain database continuity.
+- Model Variety: Comparing XGBoost, LightGBM, RandomForest, ExtraTrees, and SVR provides a robust ensemble perspective on predictions.
+
+Potential Improvements:
+- Dependency Management: The project has many dependencies (pvlib, openmeteo, etc.); ensuring a consistent environment is key.
+- Performance: As the database grows, queries in 'app.py' might need optimization or indexing on the 'timestamp' column.

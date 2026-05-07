@@ -1,0 +1,466 @@
+2025-08-12 12:22:22,640 - INFO - YOLOv8 Pose model loaded.
+2025-08-12 12:22:22,640 - INFO - Starting pose-based distance estimation monitor...
+2025-08-12 12:22:38,395 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image7.jpg
+2025-08-12 12:22:44,132 - INFO - Person 1: 8.58m in image7.jpg
+2025-08-12 12:22:44,132 - INFO - Person 2: 0.54m in image7.jpg
+2025-08-12 12:22:44,143 - INFO - Saved result to results\image7_20250812-122244.jpg
+2025-08-12 12:23:25,366 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image8.jpg
+2025-08-12 12:23:26,008 - INFO - Person 1: 5.35m in image8.jpg
+2025-08-12 12:23:26,008 - INFO - Person 2: 0.70m in image8.jpg
+2025-08-12 12:23:26,022 - INFO - Saved result to results\image8_20250812-122326.jpg
+2025-08-12 12:24:12,330 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image9.jpg
+2025-08-12 12:24:12,961 - INFO - Person 1: 1.04m in image9.jpg
+2025-08-12 12:24:12,963 - INFO - Person 2: 0.66m in image9.jpg
+2025-08-12 12:24:12,975 - INFO - Saved result to results\image9_20250812-122412.jpg
+2025-08-12 12:25:50,556 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image11.jpg
+2025-08-12 12:25:51,234 - INFO - Person 1: 0.53m in image11.jpg
+2025-08-12 12:25:51,235 - INFO - Person 2: 0.96m in image11.jpg
+2025-08-12 12:25:51,247 - INFO - Saved result to results\image11_20250812-122551.jpg
+2025-08-12 12:26:38,805 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image12.jpg
+2025-08-12 12:26:39,601 - INFO - Person 1: 1.31m in image12.jpg
+2025-08-12 12:26:39,603 - INFO - Person 2: 0.53m in image12.jpg
+2025-08-12 12:26:39,616 - INFO - Saved result to results\image12_20250812-122639.jpg
+2025-08-12 12:27:09,853 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image5.jpg
+2025-08-12 12:27:11,422 - INFO - Person 1: 0.73m in image5.jpg
+2025-08-12 12:27:11,424 - INFO - Person 2: 1.62m in image5.jpg
+2025-08-12 12:27:11,424 - INFO - Person 3: Unable to estimate distance in image5.jpg
+2025-08-12 12:27:11,440 - INFO - Saved result to results\image5_20250812-122711.jpg
+2025-08-12 12:27:11,442 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image6.jpg
+2025-08-12 12:27:15,741 - INFO - Person 1: 0.52m in image6.jpg
+2025-08-12 12:27:15,744 - INFO - Person 2: 1.25m in image6.jpg
+2025-08-12 12:27:15,744 - INFO - Person 3: Unable to estimate distance in image6.jpg
+2025-08-12 12:27:15,762 - INFO - Saved result to results\image6_20250812-122715.jpg
+2025-08-12 12:27:15,766 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-08-12 12:27:16,572 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-08-12 12:27:16,574 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image2.jpg
+2025-08-12 12:27:17,614 - INFO - Person 1: 1.60m in image2.jpg
+2025-08-12 12:27:17,616 - INFO - Person 2: 5.56m in image2.jpg
+2025-08-12 12:27:17,616 - INFO - Person 3: 5.23m in image2.jpg
+2025-08-12 12:27:17,632 - INFO - Saved result to results\image2_20250812-122717.jpg
+2025-08-12 12:27:17,632 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image3.jpg
+2025-08-12 12:27:18,738 - INFO - Person 1: 0.48m in image3.jpg
+2025-08-12 12:27:18,756 - INFO - Saved result to results\image3_20250812-122718.jpg
+2025-08-12 12:27:18,757 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image4.jpg
+2025-08-12 12:27:19,528 - INFO - Person 1: 0.51m in image4.jpg
+2025-08-12 12:27:19,529 - INFO - Person 2: 5.42m in image4.jpg
+2025-08-12 12:27:19,546 - INFO - Saved result to results\image4_20250812-122719.jpg
+2025-08-12 12:27:28,093 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image13.jpg
+2025-08-12 12:27:28,997 - INFO - Person 1: 0.52m in image13.jpg
+2025-08-12 12:27:28,998 - INFO - Person 2: 0.53m in image13.jpg
+2025-08-12 12:27:29,009 - INFO - Saved result to results\image13_20250812-122728.jpg
+2025-08-12 12:28:14,604 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image14.jpg
+2025-08-12 12:28:15,521 - INFO - Person 1: 0.64m in image14.jpg
+2025-08-12 12:28:15,523 - INFO - Person 2: Unable to estimate distance in image14.jpg
+2025-08-12 12:28:15,537 - INFO - Saved result to results\image14_20250812-122815.jpg
+2025-08-12 12:29:03,618 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image15.jpg
+2025-08-12 12:29:05,253 - INFO - Person 1: 4.18m in image15.jpg
+2025-08-12 12:29:05,254 - INFO - Person 2: 2.06m in image15.jpg
+2025-08-12 12:29:05,280 - INFO - Saved result to results\image15_20250812-122905.jpg
+2025-08-12 12:29:52,346 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image16.jpg
+2025-08-12 12:29:53,750 - INFO - Person 1: 0.94m in image16.jpg
+2025-08-12 12:29:53,752 - INFO - Person 2: 5.22m in image16.jpg
+2025-08-12 12:29:53,752 - INFO - Person 3: Unable to estimate distance in image16.jpg
+2025-08-12 12:29:53,767 - INFO - Saved result to results\image16_20250812-122953.jpg
+2025-08-12 12:30:40,828 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image17.jpg
+2025-08-12 12:30:42,127 - INFO - Person 1: 2.64m in image17.jpg
+2025-08-12 12:30:42,127 - INFO - Person 2: 2.03m in image17.jpg
+2025-08-12 12:30:42,140 - INFO - Saved result to results\image17_20250812-123042.jpg
+2025-08-12 12:31:31,758 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image18.jpg
+2025-08-12 12:31:32,752 - INFO - Person 1: 4.01m in image18.jpg
+2025-08-12 12:31:32,754 - INFO - Person 2: 0.53m in image18.jpg
+2025-08-12 12:31:32,769 - INFO - Saved result to results\image18_20250812-123132.jpg
+2025-08-12 12:32:20,224 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image19.jpg
+2025-08-12 12:32:21,222 - INFO - Person 1: 1.90m in image19.jpg
+2025-08-12 12:32:21,237 - INFO - Saved result to results\image19_20250812-123221.jpg
+2025-08-12 14:31:21,419 - INFO - YOLOv8 Pose model loaded.
+2025-08-12 14:31:21,421 - INFO - Starting pose-based distance estimation monitor...
+2025-08-12 14:34:54,660 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-08-12 14:34:59,992 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-08-12 14:35:24,829 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image2.jpg
+2025-08-12 14:35:25,667 - INFO - Person 1: 0.44m in image2.jpg
+2025-08-12 14:35:25,680 - INFO - Saved result to results\image2_20250812-143525.jpg
+2025-08-12 14:36:13,475 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image3.jpg
+2025-08-12 14:36:15,366 - INFO - Person 1: 0.31m in image3.jpg
+2025-08-12 14:36:15,367 - INFO - Person 2: 0.41m in image3.jpg
+2025-08-12 14:36:15,386 - INFO - Saved result to results\image3_20250812-143615.jpg
+2025-08-12 14:36:44,212 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image4.jpg
+2025-08-12 14:36:45,615 - INFO - Person 1: 0.64m in image4.jpg
+2025-08-12 14:36:45,633 - INFO - Saved result to results\image4_20250812-143645.jpg
+2025-08-12 14:37:13,566 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image5.jpg
+2025-08-12 14:37:14,940 - INFO - Person 1: 0.69m in image5.jpg
+2025-08-12 14:37:14,957 - INFO - Saved result to results\image5_20250812-143714.jpg
+2025-08-12 14:38:02,193 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image6.jpg
+2025-08-12 14:38:03,163 - INFO - Person 1: 0.34m in image6.jpg
+2025-08-12 14:38:03,177 - INFO - Saved result to results\image6_20250812-143803.jpg
+2025-08-12 14:38:49,041 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image7.jpg
+2025-08-12 14:38:50,480 - INFO - Person 1: 0.68m in image7.jpg
+2025-08-12 14:38:50,481 - INFO - Person 2: Unable to estimate distance in image7.jpg
+2025-08-12 14:38:50,493 - INFO - Saved result to results\image7_20250812-143850.jpg
+2025-08-12 14:39:36,132 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image8.jpg
+2025-08-12 14:39:37,412 - INFO - Person 1: 0.55m in image8.jpg
+2025-08-12 14:39:37,429 - INFO - Saved result to results\image8_20250812-143937.jpg
+2025-08-12 14:40:06,762 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image9.jpg
+2025-08-12 14:40:08,070 - INFO - Person 1: 0.39m in image9.jpg
+2025-08-12 14:40:08,084 - INFO - Saved result to results\image9_20250812-144008.jpg
+2025-08-12 14:40:53,434 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image10.jpg
+2025-08-12 14:40:54,714 - INFO - Person 1: 0.38m in image10.jpg
+2025-08-12 14:40:54,727 - INFO - Saved result to results\image10_20250812-144054.jpg
+2025-08-12 14:41:22,430 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image11.jpg
+2025-08-12 14:41:23,619 - INFO - Person 1: 1.19m in image11.jpg
+2025-08-12 14:41:23,632 - INFO - Saved result to results\image11_20250812-144123.jpg
+2025-08-12 14:41:51,900 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image12.jpg
+2025-08-12 14:41:53,180 - INFO - Person 1: 1.10m in image12.jpg
+2025-08-12 14:41:53,181 - INFO - Person 2: Unable to estimate distance in image12.jpg
+2025-08-12 14:41:53,197 - INFO - Saved result to results\image12_20250812-144153.jpg
+2025-08-12 14:42:38,632 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image13.jpg
+2025-08-12 14:42:39,810 - INFO - Person 1: 0.64m in image13.jpg
+2025-08-12 14:42:39,832 - INFO - Saved result to results\image13_20250812-144239.jpg
+2025-08-12 14:43:27,084 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image14.jpg
+2025-08-12 14:43:28,315 - INFO - Person 1: 1.25m in image14.jpg
+2025-08-12 14:43:28,331 - INFO - Saved result to results\image14_20250812-144328.jpg
+2025-08-12 14:43:59,419 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image15.jpg
+2025-08-12 14:44:00,596 - INFO - Person 1: Unable to estimate distance in image15.jpg
+2025-08-12 14:44:00,618 - INFO - Saved result to results\image15_20250812-144400.jpg
+2025-08-12 14:44:29,937 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image16.jpg
+2025-08-12 14:44:31,386 - INFO - Person 1: 0.68m in image16.jpg
+2025-08-12 14:44:31,406 - INFO - Saved result to results\image16_20250812-144431.jpg
+2025-08-12 14:45:18,252 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image17.jpg
+2025-08-12 14:45:19,363 - INFO - Person 1: 0.58m in image17.jpg
+2025-08-12 14:45:19,388 - INFO - Saved result to results\image17_20250812-144519.jpg
+2025-08-12 14:46:06,902 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image18.jpg
+2025-08-12 14:46:08,066 - INFO - Person 1: 0.58m in image18.jpg
+2025-08-12 14:46:08,089 - INFO - Saved result to results\image18_20250812-144608.jpg
+2025-08-12 14:46:55,475 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image19.jpg
+2025-08-12 14:46:56,638 - INFO - Person 1: 0.61m in image19.jpg
+2025-08-12 14:46:56,663 - INFO - Saved result to results\image19_20250812-144656.jpg
+2025-08-12 14:47:43,769 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image20.jpg
+2025-08-12 14:47:44,819 - INFO - Person 1: 0.58m in image20.jpg
+2025-08-12 14:47:44,837 - INFO - Saved result to results\image20_20250812-144744.jpg
+2025-08-12 14:48:12,317 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image21.jpg
+2025-08-12 14:48:13,292 - INFO - Person 1: 0.62m in image21.jpg
+2025-08-12 14:48:13,306 - INFO - Saved result to results\image21_20250812-144813.jpg
+2025-08-12 14:48:42,786 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image22.jpg
+2025-08-12 14:48:43,726 - INFO - Person 1: Unable to estimate distance in image22.jpg
+2025-08-12 14:48:43,739 - INFO - Saved result to results\image22_20250812-144843.jpg
+2025-08-12 14:49:49,361 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image23.jpg
+2025-08-12 14:49:50,272 - INFO - Person 1: Unable to estimate distance in image23.jpg
+2025-08-12 14:49:50,285 - INFO - Saved result to results\image23_20250812-144950.jpg
+2025-08-12 14:50:18,836 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image24.jpg
+2025-08-12 14:50:19,698 - INFO - Person 1: 0.59m in image24.jpg
+2025-08-12 14:50:19,709 - INFO - Saved result to results\image24_20250812-145019.jpg
+2025-08-12 14:51:06,008 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image25.jpg
+2025-08-12 14:51:07,140 - INFO - Person 1: 0.60m in image25.jpg
+2025-08-12 14:51:07,157 - INFO - Saved result to results\image25_20250812-145107.jpg
+2025-08-12 14:52:02,835 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image26.jpg
+2025-08-12 14:52:03,707 - INFO - Person 1: Unable to estimate distance in image26.jpg
+2025-08-12 14:52:03,720 - INFO - Saved result to results\image26_20250812-145203.jpg
+2025-08-12 14:52:53,500 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image27.jpg
+2025-08-12 14:52:54,437 - INFO - Person 1: 0.57m in image27.jpg
+2025-08-12 14:52:54,451 - INFO - Saved result to results\image27_20250812-145254.jpg
+2025-08-12 14:53:40,511 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image28.jpg
+2025-08-12 14:53:41,410 - INFO - Person 1: 0.54m in image28.jpg
+2025-08-12 14:53:41,423 - INFO - Saved result to results\image28_20250812-145341.jpg
+2025-08-12 14:54:29,224 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image29.jpg
+2025-08-12 14:54:30,360 - INFO - Person 1: 0.56m in image29.jpg
+2025-08-12 14:54:30,377 - INFO - Saved result to results\image29_20250812-145430.jpg
+2025-08-12 14:55:15,951 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image30.jpg
+2025-08-12 14:55:16,820 - INFO - Person 1: 0.55m in image30.jpg
+2025-08-12 14:55:16,832 - INFO - Saved result to results\image30_20250812-145516.jpg
+2025-08-12 14:55:44,827 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image31.jpg
+2025-08-12 14:55:45,784 - INFO - Person 1: 0.56m in image31.jpg
+2025-08-12 14:55:45,802 - INFO - Saved result to results\image31_20250812-145545.jpg
+2025-08-12 14:56:39,471 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image32.jpg
+2025-08-12 14:56:40,365 - INFO - Person 1: 0.55m in image32.jpg
+2025-08-12 14:56:40,379 - INFO - Saved result to results\image32_20250812-145640.jpg
+2025-08-12 14:57:10,253 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image33.jpg
+2025-08-12 14:57:11,374 - INFO - Person 1: 0.55m in image33.jpg
+2025-08-12 14:57:11,390 - INFO - Saved result to results\image33_20250812-145711.jpg
+2025-08-12 14:57:41,460 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image34.jpg
+2025-08-12 14:57:42,455 - INFO - Person 1: 0.58m in image34.jpg
+2025-08-12 14:57:42,472 - INFO - Saved result to results\image34_20250812-145742.jpg
+2025-08-12 14:58:28,155 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image35.jpg
+2025-08-12 14:58:29,077 - INFO - Person 1: 0.54m in image35.jpg
+2025-08-12 14:58:29,090 - INFO - Saved result to results\image35_20250812-145829.jpg
+2025-08-12 14:58:57,524 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image36.jpg
+2025-08-12 14:58:58,587 - INFO - Person 1: 0.58m in image36.jpg
+2025-08-12 14:58:58,607 - INFO - Saved result to results\image36_20250812-145858.jpg
+2025-08-12 14:59:27,146 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image37.jpg
+2025-08-12 14:59:28,137 - INFO - Person 1: 0.56m in image37.jpg
+2025-08-12 14:59:28,154 - INFO - Saved result to results\image37_20250812-145928.jpg
+2025-08-12 15:00:17,769 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image38.jpg
+2025-08-12 15:00:18,802 - INFO - Person 1: 0.56m in image38.jpg
+2025-08-12 15:00:18,823 - INFO - Saved result to results\image38_20250812-150018.jpg
+2025-08-12 15:00:46,949 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image39.jpg
+2025-08-12 15:00:48,447 - INFO - Person 1: Unable to estimate distance in image39.jpg
+2025-08-12 15:00:48,463 - INFO - Saved result to results\image39_20250812-150048.jpg
+2025-08-12 15:01:35,492 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image40.jpg
+2025-08-12 15:01:36,876 - INFO - Person 1: Unable to estimate distance in image40.jpg
+2025-08-12 15:01:36,901 - INFO - Saved result to results\image40_20250812-150136.jpg
+2025-08-12 15:02:24,394 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image41.jpg
+2025-08-12 15:02:25,614 - INFO - Person 1: 0.54m in image41.jpg
+2025-08-12 15:02:25,631 - INFO - Saved result to results\image41_20250812-150225.jpg
+2025-08-12 15:02:59,301 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image42.jpg
+2025-08-12 15:03:00,411 - INFO - Person 1: 0.75m in image42.jpg
+2025-08-12 15:03:00,429 - INFO - Saved result to results\image42_20250812-150300.jpg
+2025-08-12 15:03:47,339 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image43.jpg
+2025-08-12 15:03:48,335 - INFO - Person 1: 0.64m in image43.jpg
+2025-08-12 15:03:48,349 - INFO - Saved result to results\image43_20250812-150348.jpg
+2025-08-12 15:04:19,518 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image44.jpg
+2025-08-12 15:04:20,685 - INFO - Person 1: 0.66m in image44.jpg
+2025-08-12 15:04:20,704 - INFO - Saved result to results\image44_20250812-150420.jpg
+2025-08-12 15:05:09,905 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image45.jpg
+2025-08-12 15:05:10,981 - INFO - Person 1: Unable to estimate distance in image45.jpg
+2025-08-12 15:05:11,001 - INFO - Saved result to results\image45_20250812-150510.jpg
+2025-08-12 15:05:58,176 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image46.jpg
+2025-08-12 15:05:59,291 - INFO - Person 1: Unable to estimate distance in image46.jpg
+2025-08-12 15:05:59,310 - INFO - Saved result to results\image46_20250812-150559.jpg
+2025-08-12 15:06:28,645 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image47.jpg
+2025-08-12 15:06:29,618 - INFO - Person 1: 36.82m in image47.jpg
+2025-08-12 15:06:29,628 - INFO - Saved result to results\image47_20250812-150629.jpg
+2025-08-12 15:07:02,769 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image48.jpg
+2025-08-12 15:07:03,758 - INFO - Person 1: 0.72m in image48.jpg
+2025-08-12 15:07:03,758 - INFO - Person 2: Unable to estimate distance in image48.jpg
+2025-08-12 15:07:03,786 - INFO - Saved result to results\image48_20250812-150703.jpg
+2025-08-12 15:07:50,846 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image49.jpg
+2025-08-12 15:07:51,804 - INFO - Person 1: 0.52m in image49.jpg
+2025-08-12 15:07:51,823 - INFO - Saved result to results\image49_20250812-150751.jpg
+2025-08-12 15:08:39,013 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image50.jpg
+2025-08-12 15:08:39,955 - INFO - Person 1: 0.44m in image50.jpg
+2025-08-12 15:08:39,967 - INFO - Saved result to results\image50_20250812-150839.jpg
+2025-08-12 15:09:29,888 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image51.jpg
+2025-08-12 15:09:30,931 - INFO - Person 1: Unable to estimate distance in image51.jpg
+2025-08-12 15:09:30,946 - INFO - Saved result to results\image51_20250812-150930.jpg
+2025-08-12 15:10:35,770 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image52.jpg
+2025-08-12 15:10:36,828 - INFO - Person 1: Unable to estimate distance in image52.jpg
+2025-08-12 15:10:36,846 - INFO - Saved result to results\image52_20250812-151036.jpg
+2025-08-12 15:11:10,859 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image53.jpg
+2025-08-12 15:11:11,965 - INFO - Person 1: Unable to estimate distance in image53.jpg
+2025-08-12 15:11:11,989 - INFO - Saved result to results\image53_20250812-151111.jpg
+2025-08-12 15:11:45,439 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image54.jpg
+2025-08-12 15:11:46,442 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image54.jpg
+2025-08-12 15:12:35,794 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image55.jpg
+2025-08-12 15:12:36,981 - INFO - Person 1: Unable to estimate distance in image55.jpg
+2025-08-12 15:12:37,002 - INFO - Saved result to results\image55_20250812-151236.jpg
+2025-08-12 15:13:24,038 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image56.jpg
+2025-08-12 15:13:24,943 - INFO - Person 1: 0.56m in image56.jpg
+2025-08-12 15:13:24,960 - INFO - Saved result to results\image56_20250812-151324.jpg
+2025-08-12 15:14:12,330 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image57.jpg
+2025-08-12 15:14:13,433 - INFO - Person 1: 0.61m in image57.jpg
+2025-08-12 15:14:13,456 - INFO - Saved result to results\image57_20250812-151413.jpg
+2025-08-12 15:15:00,523 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image58.jpg
+2025-08-12 15:15:02,514 - INFO - Person 1: 0.64m in image58.jpg
+2025-08-12 15:15:02,530 - INFO - Saved result to results\image58_20250812-151502.jpg
+2025-08-12 15:15:49,516 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image59.jpg
+2025-08-12 15:15:50,759 - INFO - Person 1: Unable to estimate distance in image59.jpg
+2025-08-12 15:15:50,782 - INFO - Saved result to results\image59_20250812-151550.jpg
+2025-08-12 15:16:37,977 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image60.jpg
+2025-08-12 15:16:39,109 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image60.jpg
+2025-08-12 15:17:26,216 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image61.jpg
+2025-08-12 15:17:27,174 - INFO - Person 1: Unable to estimate distance in image61.jpg
+2025-08-12 15:17:27,198 - INFO - Saved result to results\image61_20250812-151727.jpg
+2025-08-12 15:23:45,900 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image62.jpg
+2025-08-12 15:23:46,725 - INFO - Person 1: 2.08m in image62.jpg
+2025-08-12 15:23:46,725 - INFO - Person 2: Unable to estimate distance in image62.jpg
+2025-08-12 15:23:46,737 - INFO - Saved result to results\image62_20250812-152346.jpg
+2025-08-12 15:24:33,646 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image63.jpg
+2025-08-12 15:24:35,622 - INFO - Person 1: 2.88m in image63.jpg
+2025-08-12 15:24:35,624 - INFO - Person 2: 6.93m in image63.jpg
+2025-08-12 15:24:35,625 - INFO - Person 3: 1.77m in image63.jpg
+2025-08-12 15:24:35,642 - INFO - Saved result to results\image63_20250812-152435.jpg
+2025-08-12 15:25:04,722 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image64.jpg
+2025-08-12 15:25:06,323 - INFO - Person 1: 1.12m in image64.jpg
+2025-08-12 15:25:06,323 - INFO - Person 2: 1.57m in image64.jpg
+2025-08-12 15:25:06,325 - INFO - Person 3: 13.91m in image64.jpg
+2025-08-12 15:25:06,339 - INFO - Saved result to results\image64_20250812-152506.jpg
+2025-08-12 15:25:35,524 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image65.jpg
+2025-08-12 15:25:36,927 - INFO - Person 1: 0.57m in image65.jpg
+2025-08-12 15:25:36,929 - INFO - Person 2: 2.10m in image65.jpg
+2025-08-12 15:25:36,945 - INFO - Saved result to results\image65_20250812-152536.jpg
+2025-08-12 15:26:24,423 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image66.jpg
+2025-08-12 15:26:25,454 - INFO - Person 1: 2.20m in image66.jpg
+2025-08-12 15:26:25,456 - INFO - Person 2: 0.46m in image66.jpg
+2025-08-12 15:26:25,472 - INFO - Saved result to results\image66_20250812-152625.jpg
+2025-08-12 15:26:57,745 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image67.jpg
+2025-08-12 15:26:59,284 - INFO - Person 1: 2.02m in image67.jpg
+2025-08-12 15:26:59,285 - INFO - Person 2: 1.63m in image67.jpg
+2025-08-12 15:26:59,298 - INFO - Saved result to results\image67_20250812-152659.jpg
+2025-08-12 15:27:44,723 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image68.jpg
+2025-08-12 15:27:45,588 - INFO - Person 1: 0.45m in image68.jpg
+2025-08-12 15:27:45,589 - INFO - Person 2: 2.83m in image68.jpg
+2025-08-12 15:27:45,603 - INFO - Saved result to results\image68_20250812-152745.jpg
+2025-08-12 15:28:35,050 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image69.jpg
+2025-08-12 15:28:36,247 - INFO - Person 1: 2.12m in image69.jpg
+2025-08-12 15:28:36,247 - INFO - Person 2: 0.38m in image69.jpg
+2025-08-12 15:28:36,260 - INFO - Saved result to results\image69_20250812-152836.jpg
+2025-08-12 15:29:23,659 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image70.jpg
+2025-08-12 15:29:24,607 - INFO - Person 1: 1.95m in image70.jpg
+2025-08-12 15:29:24,626 - INFO - Saved result to results\image70_20250812-152924.jpg
+2025-08-12 16:15:25,564 - INFO - Stopping monitoring...
+2025-08-14 18:17:17,713 - INFO - YOLOv8 Pose model loaded.
+2025-08-14 18:17:17,714 - INFO - Starting pose-based distance estimation monitor...
+2025-08-29 13:14:40,598 - INFO - YOLOv8 Pose model loaded.
+2025-08-29 13:14:40,684 - INFO - Starting pose-based distance estimation monitor...
+2025-08-29 13:27:05,900 - INFO - Stopping monitoring...
+2025-08-29 13:27:18,535 - INFO - YOLOv8 Pose model loaded.
+2025-08-29 13:27:18,537 - INFO - Starting pose-based distance estimation monitor...
+2025-08-29 13:32:57,489 - INFO - Stopping monitoring...
+2025-08-29 13:33:32,797 - INFO - YOLOv8 Pose model loaded.
+2025-08-29 13:33:32,805 - INFO - Starting pose-based distance estimation monitor...
+2025-09-01 10:40:41,974 - INFO - YOLOv8 Pose model loaded.
+2025-09-01 10:40:41,976 - INFO - Starting pose-based distance estimation monitor...
+2025-09-01 10:58:02,104 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-09-01 10:58:40,797 - INFO - Person 1: 0.84m in image1.jpg
+2025-09-01 10:58:40,809 - INFO - Saved result to results\image1_20250901-105840.jpg
+2025-09-01 10:58:54,472 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image2.jpg
+2025-09-01 10:58:55,318 - INFO - Person 1: Unable to estimate distance in image2.jpg
+2025-09-01 10:58:55,331 - INFO - Saved result to results\image2_20250901-105855.jpg
+2025-09-01 11:08:18,684 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image3.jpg
+2025-09-01 11:08:21,014 - INFO - Person 1: 0.30m in image3.jpg
+2025-09-01 11:08:21,035 - INFO - Saved result to results\image3_20250901-110821.jpg
+2025-09-01 11:08:55,542 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image4.jpg
+2025-09-01 11:08:57,315 - INFO - Person 1: 0.46m in image4.jpg
+2025-09-01 11:08:57,344 - INFO - Saved result to results\image4_20250901-110857.jpg
+2025-09-01 11:09:44,663 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image5.jpg
+2025-09-01 11:09:46,146 - INFO - Person 1: 0.43m in image5.jpg
+2025-09-01 11:09:46,158 - INFO - Saved result to results\image5_20250901-110946.jpg
+2025-09-01 11:10:33,046 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image6.jpg
+2025-09-01 11:10:34,402 - INFO - Person 1: 0.48m in image6.jpg
+2025-09-01 11:10:34,413 - INFO - Saved result to results\image6_20250901-111034.jpg
+2025-09-01 11:11:07,257 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image7.jpg
+2025-09-01 11:11:08,649 - INFO - Person 1: 0.40m in image7.jpg
+2025-09-01 11:11:08,661 - INFO - Saved result to results\image7_20250901-111108.jpg
+2025-09-01 11:11:54,424 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image8.jpg
+2025-09-01 11:11:55,849 - INFO - Person 1: 0.42m in image8.jpg
+2025-09-01 11:11:55,861 - INFO - Saved result to results\image8_20250901-111155.jpg
+2025-09-01 12:01:02,373 - INFO - Stopping monitoring...
+2025-09-03 15:20:03,730 - INFO - YOLOv8 Pose model loaded.
+2025-09-03 15:20:03,730 - INFO - Starting pose-based distance estimation monitor...
+2025-09-03 15:52:30,324 - INFO - Stopping monitoring...
+2025-09-03 15:52:53,058 - INFO - YOLOv8 Pose model loaded.
+2025-09-03 15:52:53,058 - INFO - Starting pose-based distance estimation monitor...
+2025-09-03 15:53:31,039 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image9.jpg
+2025-09-03 15:53:36,079 - INFO - Person 1: Unable to estimate distance in image9.jpg
+2025-09-03 15:53:36,099 - INFO - Saved result to results\image9_20250903-155336.jpg
+2025-09-03 15:54:03,421 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image10.jpg
+2025-09-03 15:54:04,418 - INFO - Person 1: 0.85m in image10.jpg
+2025-09-03 15:54:04,420 - INFO - Person 2: 5.08m in image10.jpg
+2025-09-03 15:54:04,434 - INFO - Saved result to results\image10_20250903-155404.jpg
+2025-09-03 15:54:51,743 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image11.jpg
+2025-09-03 15:54:53,196 - INFO - Person 1: 0.93m in image11.jpg
+2025-09-03 15:54:53,196 - INFO - Person 2: Unable to estimate distance in image11.jpg
+2025-09-03 15:54:53,211 - INFO - Saved result to results\image11_20250903-155453.jpg
+2025-09-03 15:55:39,011 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image12.jpg
+2025-09-03 15:55:40,251 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image12.jpg
+2025-09-03 15:56:09,478 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image13.jpg
+2025-09-03 15:56:10,528 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image13.jpg
+2025-09-03 15:56:53,599 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image14.jpg
+2025-09-03 15:56:54,590 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image14.jpg
+2025-09-03 15:57:07,696 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image15.jpg
+2025-09-03 15:57:08,502 - INFO - Person 1: Unable to estimate distance in image15.jpg
+2025-09-03 15:57:08,514 - INFO - Saved result to results\image15_20250903-155708.jpg
+2025-09-03 15:57:54,723 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image16.jpg
+2025-09-03 15:57:55,592 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image16.jpg
+2025-09-03 15:58:27,367 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image17.jpg
+2025-09-03 15:58:28,339 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image17.jpg
+2025-09-03 15:59:16,457 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image18.jpg
+2025-09-03 15:59:18,135 - INFO - Person 1: 0.82m in image18.jpg
+2025-09-03 15:59:18,150 - INFO - Saved result to results\image18_20250903-155918.jpg
+2025-09-03 15:59:49,077 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image19.jpg
+2025-09-03 15:59:50,537 - INFO - Person 1: 0.84m in image19.jpg
+2025-09-03 15:59:50,537 - INFO - Person 2: 2.35m in image19.jpg
+2025-09-03 15:59:50,557 - INFO - Saved result to results\image19_20250903-155950.jpg
+2025-09-03 16:00:37,468 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image20.jpg
+2025-09-03 16:00:39,200 - INFO - Person 1: 0.88m in image20.jpg
+2025-09-03 16:00:39,216 - INFO - Saved result to results\image20_20250903-160039.jpg
+2025-09-03 16:01:32,695 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image21.jpg
+2025-09-03 16:01:34,292 - INFO - Person 1: 1.14m in image21.jpg
+2025-09-03 16:01:34,308 - INFO - Saved result to results\image21_20250903-160134.jpg
+2025-09-03 16:02:20,989 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image22.jpg
+2025-09-03 16:02:22,243 - INFO - Person 1: 0.53m in image22.jpg
+2025-09-03 16:02:22,259 - INFO - Saved result to results\image22_20250903-160222.jpg
+2025-09-03 16:02:51,201 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image23.jpg
+2025-09-03 16:02:52,159 - INFO - Person 1: 6.24m in image23.jpg
+2025-09-03 16:02:52,173 - INFO - Saved result to results\image23_20250903-160252.jpg
+2025-09-03 16:03:39,500 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image24.jpg
+2025-09-03 16:03:40,919 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image24.jpg
+2025-09-03 16:04:09,702 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image25.jpg
+2025-09-03 16:04:10,681 - INFO - Person 1: Unable to estimate distance in image25.jpg
+2025-09-03 16:04:10,682 - INFO - Person 2: 0.90m in image25.jpg
+2025-09-03 16:04:10,700 - INFO - Saved result to results\image25_20250903-160410.jpg
+2025-09-03 16:04:58,228 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image26.jpg
+2025-09-03 16:04:59,895 - INFO - Person 1: 0.61m in image26.jpg
+2025-09-03 16:04:59,897 - INFO - Person 2: 0.72m in image26.jpg
+2025-09-03 16:04:59,914 - INFO - Saved result to results\image26_20250903-160459.jpg
+2025-09-03 16:05:28,534 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image27.jpg
+2025-09-03 16:05:29,655 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image27.jpg
+2025-09-03 16:06:13,716 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image28.jpg
+2025-09-03 16:06:14,707 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image28.jpg
+2025-09-03 16:06:27,683 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image29.jpg
+2025-09-03 16:06:28,558 - INFO - No people detected in: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image29.jpg
+2025-09-03 16:07:00,357 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image30.jpg
+2025-09-03 16:07:02,205 - INFO - Person 1: Unable to estimate distance in image30.jpg
+2025-09-03 16:07:02,220 - INFO - Saved result to results\image30_20250903-160702.jpg
+2025-09-10 13:39:29,711 - INFO - YOLOv8 Pose model loaded.
+2025-09-10 13:39:29,712 - INFO - Starting pose-based distance estimation monitor...
+2025-09-10 13:49:33,712 - INFO - Stopping monitoring...
+2025-09-10 13:49:48,057 - INFO - YOLOv8 Pose model loaded.
+2025-09-10 13:49:48,058 - INFO - Starting pose-based distance estimation monitor...
+2025-09-10 13:51:08,018 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image5.jpg
+2025-09-10 13:51:17,097 - INFO - Person 1: Unable to estimate distance in image5.jpg
+2025-09-10 13:51:17,116 - INFO - Saved result to results\image5_20250910-135117.jpg
+2025-09-10 13:51:57,773 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image6.jpg
+2025-09-10 13:51:59,299 - INFO - Person 1: 0.43m in image6.jpg
+2025-09-10 13:51:59,300 - INFO - Person 2: 1.21m in image6.jpg
+2025-09-10 13:51:59,317 - INFO - Saved result to results\image6_20250910-135159.jpg
+2025-09-10 13:52:46,362 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image7.jpg
+2025-09-10 13:52:47,407 - INFO - Person 1: 2.02m in image7.jpg
+2025-09-10 13:52:47,477 - INFO - Saved result to results\image7_20250910-135247.jpg
+2025-09-10 13:53:36,956 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image8.jpg
+2025-09-10 13:53:38,603 - INFO - Person 1: 0.46m in image8.jpg
+2025-09-10 13:53:38,611 - INFO - Person 2: 0.99m in image8.jpg
+2025-09-10 13:53:38,613 - INFO - Person 3: 1.12m in image8.jpg
+2025-09-10 13:53:38,634 - INFO - Saved result to results\image8_20250910-135338.jpg
+2025-09-10 13:54:27,547 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image9.jpg
+2025-09-10 13:54:28,496 - INFO - Person 1: Unable to estimate distance in image9.jpg
+2025-09-10 13:54:28,498 - INFO - Person 2: 0.68m in image9.jpg
+2025-09-10 13:54:28,513 - INFO - Saved result to results\image9_20250910-135428.jpg
+2025-09-10 13:56:57,193 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image12.jpg
+2025-09-10 13:56:58,188 - INFO - Person 1: Unable to estimate distance in image12.jpg
+2025-09-10 13:56:58,209 - INFO - Saved result to results\image12_20250910-135658.jpg
+2025-09-10 13:57:46,287 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image13.jpg
+2025-09-10 13:57:47,720 - INFO - Person 1: Unable to estimate distance in image13.jpg
+2025-09-10 13:57:47,732 - INFO - Person 2: 6.34m in image13.jpg
+2025-09-10 13:57:47,782 - INFO - Saved result to results\image13_20250910-135747.jpg
+2025-09-10 13:58:35,723 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image14.jpg
+2025-09-10 13:58:37,542 - INFO - Person 1: 0.71m in image14.jpg
+2025-09-10 13:58:37,543 - INFO - Person 2: Unable to estimate distance in image14.jpg
+2025-09-10 13:58:37,566 - INFO - Saved result to results\image14_20250910-135837.jpg
+2025-09-10 13:59:24,886 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image15.jpg
+2025-09-10 13:59:25,851 - INFO - Person 1: 1.87m in image15.jpg
+2025-09-10 13:59:25,851 - INFO - Person 2: Unable to estimate distance in image15.jpg
+2025-09-10 13:59:25,868 - INFO - Saved result to results\image15_20250910-135925.jpg
+2025-09-10 14:00:14,499 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image16.jpg
+2025-09-10 14:00:15,406 - INFO - Person 1: 1.19m in image16.jpg
+2025-09-10 14:00:15,408 - INFO - Person 2: 1.10m in image16.jpg
+2025-09-10 14:00:15,425 - INFO - Saved result to results\image16_20250910-140015.jpg
+2025-09-10 14:01:29,519 - INFO - Stopping monitoring...
+2025-09-12 14:09:02,012 - INFO - YOLOv8 Pose model loaded.
+2025-09-12 14:09:02,013 - INFO - Starting pose-based distance estimation monitor...
+2025-09-12 14:19:12,893 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image1.jpg
+2025-09-12 14:19:20,181 - INFO - Person 1: 0.44m in image1.jpg
+2025-09-12 14:19:20,201 - INFO - Saved result to results\image1_20250912-141920.jpg
+2025-09-12 14:19:45,567 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image2.jpg
+2025-09-12 14:19:46,783 - INFO - Person 1: 0.45m in image2.jpg
+2025-09-12 14:19:46,804 - INFO - Saved result to results\image2_20250912-141946.jpg
+2025-09-12 14:20:16,476 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image3.jpg
+2025-09-12 14:20:17,731 - INFO - Person 1: 0.45m in image3.jpg
+2025-09-12 14:20:17,747 - INFO - Saved result to results\image3_20250912-142017.jpg
+2025-09-12 14:20:49,293 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image4.jpg
+2025-09-12 14:20:50,694 - INFO - Person 1: 1.36m in image4.jpg
+2025-09-12 14:20:50,710 - INFO - Saved result to results\image4_20250912-142050.jpg
+2025-09-12 14:21:22,281 - INFO - New image detected: C:\Users\sanga\OneDrive\Desktop\My space\Projects\Sangam\image5.jpg
+2025-09-12 14:21:24,055 - INFO - Person 1: 1.81m in image5.jpg
+2025-09-12 14:21:24,077 - INFO - Saved result to results\image5_20250912-142124.jpg
+2026-04-25 15:54:53,920 - INFO - YOLOv8 Pose model loaded.
+2026-04-25 15:55:20,951 - INFO - YOLOv8 Pose model loaded.
+2026-04-25 15:55:20,951 - INFO - YOLOv8 Pose model loaded.

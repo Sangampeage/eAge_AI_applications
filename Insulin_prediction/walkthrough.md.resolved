@@ -1,0 +1,25 @@
+# Walkthrough: Insulin Prediction System
+
+This guide explains how to gather glucose data and run the insulin bolus advisor.
+
+## 1. Start Data Reception
+Connect your hardware and start the serial receiver script.
+
+```bash
+cd Insulin_prediction
+python Receive_data.py
+```
+*Note: Ensure the COM port (default `COM9`) is correct.*
+
+## 2. Launch the Advisor Dashboard
+Start the real-time prediction interface.
+
+```bash
+cd Insulin_prediction
+streamlit run model.py
+```
+
+## 3. Usage
+- The dashboard will wait for data to appear in `glucose_data.json`.
+- It updates every 5 seconds.
+- You will see current glucose, predicted bolus status (Yes/No), and the recommended dosage in units.

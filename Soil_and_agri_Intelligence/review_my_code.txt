@@ -1,0 +1,363 @@
+================================================================================
+         CODE REVIEW REPORT — Soil_and_agri_Intelligence / disease_risk_model
+         Reviewer: Claude (Automated Senior Engineer Review)
+         Date: 2026-05-04
+================================================================================
+
+OVERALL VERDICT: 6.5 / 10 — Decent Junior-to-Mid Level Work
+─────────────────────────────────────────────────────────────
+The codebase shows a solid understanding of separation of concerns and produces
+clean, readable Python. The schema design is thoughtful. However, there are
+meaningful gaps in robustness, security, testability, and production-readiness
+that must be addressed before this code goes live.
+
+================================================================================
+FILE-BY-FILE ANALYSIS
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+[1] engine.py  — Score: 7 / 10
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ Clean docstrings with typed signatures.
+  ✔ Stress values are clamped to [0, 1] — good defensive programming.
+  ✔ Risk levels are abstracted into a separate helper (get_risk_level).
+  ✔ Output structure is clear and JSON-serializable.
+  ✔ Separation between config loading and calculation is correct.
+
+ISSUES FOUND:
+
+  [MEDIUM] Hard-coded weights with zero documentation
+    Line:  risk_score = (0.5 * temp_stress) + (0.3 * rainfall_stress) + (0.2 * altitude_stress)
+    Problem: Why 0.5, 0.3, 0.2? There is no comment, no constant, no reference
+             to agronomic research. If these weights are wrong, debugging will
+             be extremely hard.
+    Fix:   Define them as named constants at the top of the file:
+             WEIGHT_TEMPERATURE = 0.5
+             WEIGHT_RAINFALL    = 0.3
+             WEIGHT_ALTITUDE    = 0.2
+           And add a docstring comment citing the rationale.
+
+  [MEDIUM] get_risk_level thresholds are magic numbers
+    Problem: 0.3, 0.6, 0.8 are arbitrary with no explanation or configurability.
+    Fix:   Use a sorted list of (threshold, label) tuples or a config dict so
+           they can be adjusted without code changes.
+
+  [LOW] Temperature stress formula is asymmetric and potentially misleading
+    Problem: temp_stress = abs(current_temperature - t_opt) / temp_range
+             The denominator is the full range (t_max - t_min), not the
+             half-range from optimum to edge. A temperature at t_max will
+             produce a stress of (t_max - t_opt) / (t_max - t_min) which
+             will be LESS than 1.0 if t_opt is not centered. This is a
+             logical inconsistency.
+    Fix:   Use separate distances from optimum to each boundary:
+             if current_temperature >= t_opt:
+                 stress = (current_temperature - t_opt) / (t_max - t_opt)
+             else:
+                 stress = (t_opt - current_temperature) / (t_opt - t_min)
+
+  [LOW] No validation of config values
+    Problem: If the DB has t_min == t_max (data entry error), temp_range == 0
+             is handled, but negative values or t_opt outside [t_min, t_max]
+             are silently accepted and will produce nonsense results.
+    Fix:   Add a validation step after loading config.
+
+  [LOW] if __name__ == "__main__" block in a library module
+    Problem: This is fine for quick tests during development but should be
+             replaced with a proper test file. It also requires a live DB,
+             making it useless in CI.
+
+────────────────────────────────────────────────────────────────────────────────
+[2] config_loader.py  — Score: 7.5 / 10
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ Cleanly separated from the engine — good single responsibility.
+  ✔ Case-insensitive DB query is user-friendly.
+  ✔ Returns None gracefully and logs a warning.
+  ✔ Using dict(results[0]) to convert RealDictRow is correct.
+
+ISSUES FOUND:
+
+  [MEDIUM] No caching — DB hit on every single risk calculation
+    Problem: Every call to calculate_disease_risk() opens a new DB connection
+             and runs a SELECT. For batch processing 1000 crops, this is
+             1000 round-trips.
+    Fix:   Add a simple in-memory cache using @functools.lru_cache or a
+           class-level dict:
+             from functools import lru_cache
+             @staticmethod
+             @lru_cache(maxsize=128)
+             def get_crop_thresholds(crop_name: str) -> dict: ...
+
+  [LOW] Static methods on a class with no state
+    Problem: CropConfigLoader is a class with only static methods. This adds
+             no value over a plain module-level function. Either add state
+             (e.g., a cache) or convert to a module-level function.
+
+  [LOW] No retry logic for transient DB failures
+    Problem: A single DB timeout will immediately raise an unhandled exception
+             to the caller.
+
+────────────────────────────────────────────────────────────────────────────────
+[3] db.py  — Score: 5.5 / 10  ← BIGGEST CONCERN
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ Credentials are read from environment variables — correct practice.
+  ✔ RealDictCursor is a good choice for readable result rows.
+  ✔ try/finally ensures connection is always closed.
+  ✔ Rollback on error is implemented.
+
+ISSUES FOUND:
+
+  [HIGH] A new connection is opened and closed for EVERY query
+    Problem: get_connection() is called inside execute_query(), which is called
+             inside config_loader, which is called for every risk calculation.
+             This means: no connection pooling, no reuse, high latency, and
+             risk of exhausting DB connections under any real load.
+    Fix:   Use psycopg2's connection pool or switch to SQLAlchemy with a
+           connection pool:
+             from psycopg2 import pool
+             connection_pool = pool.SimpleConnectionPool(1, 10, ...)
+
+  [HIGH] Hardcoded default password in source code
+    Line:  password=os.environ.get("DB_PASSWORD", "postgres")
+    Problem: Even as a "default for local testing," this is bad practice. It
+             trains developers to ignore security. If this ever reaches
+             production with the default, the DB is wide open.
+    Fix:   Remove the default. Raise a clear error if DB_PASSWORD is not set:
+             password = os.environ["DB_PASSWORD"]  # KeyError if missing
+
+  [MEDIUM] execute_query mixes read and write operations in one function
+    Problem: The fetch=True pattern works but makes the function signature
+             misleading. Callers must remember to pass fetch=True or they
+             silently lose their SELECT results.
+    Fix:   Split into execute_read() and execute_write(), or at minimum
+           rename the parameter to return_results=False.
+
+  [MEDIUM] No connection timeout configured
+    Problem: If the DB is unreachable, psycopg2 will hang indefinitely by
+             default.
+    Fix:   Add connect_timeout=5 to psycopg2.connect().
+
+  [LOW] Port should be cast to int
+    Line:  port=os.environ.get("DB_PORT", "5432")
+    Problem: psycopg2 expects port as an integer. Passing a string works
+             because psycopg2 handles it, but it's still imprecise.
+    Fix:   port=int(os.environ.get("DB_PORT", 5432))
+
+────────────────────────────────────────────────────────────────────────────────
+[4] importer.py  — Score: 7 / 10
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ Uses UPSERT (ON CONFLICT DO UPDATE) — correct and idempotent.
+  ✔ Handles UTF-8 BOM — shows real-world awareness.
+  ✔ Skips empty rows with a guard check.
+  ✔ Proper logging throughout.
+  ✔ Rollback on exception is implemented.
+
+ISSUES FOUND:
+
+  [HIGH] No input validation / type safety on CSV data
+    Problem: float(row.get('T_Max_C', 0)) will raise ValueError if the CSV
+             has a typo (e.g., "N/A", "—", empty string after the first row).
+             A single bad row crashes the entire import with no partial success
+             and no row-level error report.
+    Fix:   Wrap each row's parsing in a try/except and log bad rows:
+             try:
+                 t_max = float(row['T_Max_C'])
+             except (ValueError, TypeError) as e:
+                 logger.warning(f"Skipping row {count}: bad value — {e}")
+                 continue
+
+  [MEDIUM] No validation that t_min < t_max < t_optimum range is sensible
+    Problem: A CSV row with T_Min=50, T_Max=10 will be silently inserted and
+             cause incorrect risk calculations.
+    Fix:   Add business-rule validations before executing the insert.
+
+  [MEDIUM] Entire file is processed in one transaction
+    Problem: For a 10,000-row CSV, if row 9,999 fails, all 9,998 successful
+             rows are rolled back. This is appropriate for strict consistency
+             but may be undesirable for bulk imports.
+    Fix:   Document this behavior explicitly, or implement batch commits
+             every N rows with a configurable batch_size.
+
+  [LOW] Fall-back default of 0 for missing columns
+    Line:  t_max = float(row.get('T_Max_C', 0))
+    Problem: If a column is missing from the CSV entirely, 0 is silently used.
+             This is a data integrity risk.
+    Fix:   Use row['T_Max_C'] (without a default) and let the KeyError surface,
+           or validate column names after reading fieldnames.
+
+────────────────────────────────────────────────────────────────────────────────
+[5] schema.sql  — Score: 8.5 / 10
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ IF NOT EXISTS prevents re-run crashes — idempotent.
+  ✔ UNIQUE constraint on crop_name is correct.
+  ✔ updated_at trigger is well implemented.
+  ✔ DROP TRIGGER IF EXISTS before CREATE prevents re-run errors.
+  ✔ created_at and updated_at with time zones are best practice.
+
+ISSUES FOUND:
+
+  [MEDIUM] No CHECK constraints to enforce business rules at the DB level
+    Problem: The DB will happily accept temp_min = -999 or rainfall = -50.
+    Fix:   Add constraints:
+             temp_min FLOAT NOT NULL CHECK (temp_min >= -100 AND temp_min < temp_max),
+             temp_max FLOAT NOT NULL CHECK (temp_max <= 100),
+             rainfall_expected FLOAT NOT NULL CHECK (rainfall_expected >= 0),
+             altitude_expected FLOAT NOT NULL CHECK (altitude_expected >= 0)
+
+  [LOW] No index beyond the primary key
+    Problem: Queries filter by crop_name with a case-insensitive WHERE clause
+             (lower(crop_name) = lower(%s)). This cannot use a standard btree
+             index.
+    Fix:   Add a functional index:
+             CREATE INDEX IF NOT EXISTS idx_crop_name_lower
+             ON crop_thresholds (lower(crop_name));
+
+  [LOW] No migration versioning
+    Problem: Schema is a raw .sql file with no migration tool (Alembic,
+             Flyway, Liquibase). Any change requires manual coordination.
+    Fix:   Integrate Alembic if this is a Python project.
+
+────────────────────────────────────────────────────────────────────────────────
+[6] preprocess.py  — Score: 5 / 10
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IS GOOD:
+  ✔ Handles multiple files generically via a loop.
+  ✔ Case-insensitive column name matching.
+  ✔ Strips whitespace and lowercases before deduplication.
+
+ISSUES FOUND:
+
+  [HIGH] Commented-out code left in production file
+    Line:  # file1 = os.path.join(data_dir, "Crop recommendation dataset.csv")
+    Problem: Dead code left in source is a maintainability and readability red
+             flag. It suggests the file is not version-controlled properly or
+             the developer is using comments as a undo mechanism.
+    Fix:   Delete it. Git handles history.
+
+  [HIGH] Function only loops over [file2] — the list is pointless
+    Line:  for file_path in [file2]:
+    Problem: This is a loop over a single-element list. The original intent
+             was likely to loop over [file1, file2] but file1 was commented
+             out. This makes the loop structure misleading and wasteful.
+    Fix:   Either restore file1, or remove the loop and call df = pd.read_csv(file2)
+             directly.
+
+  [MEDIUM] print() statements instead of logging
+    Problem: Using print() for output means there is no log level control,
+             no timestamps, and no ability to redirect output in production.
+    Fix:   Replace with logger.info() and logger.warning() throughout.
+
+  [MEDIUM] No return type annotation and no docstring
+    Problem: The function signature and contract are undocumented.
+
+  [LOW] analyze_datasets is not called from anywhere except __main__
+    Problem: It's unclear whether this is a utility script or a module meant
+             to be imported. If it's a one-off script, it should live in a
+             scripts/ folder, not src/.
+
+================================================================================
+CROSS-CUTTING CONCERNS
+================================================================================
+
+  [HIGH] ZERO TESTS
+    There is no test directory, no unit tests, no integration tests, and no
+    mocks. This is the single biggest gap in the project.
+    Every function here — calculate_disease_risk, get_risk_level, the CSV
+    import — is highly testable in isolation. The absence of tests makes
+    refactoring dangerous and bugs invisible.
+    Action: Add pytest with at least:
+      - Unit tests for get_risk_level() with boundary values
+      - Unit tests for calculate_disease_risk() with mocked CropConfigLoader
+      - Unit tests for importer.py with a mock DB cursor
+      - A test CSV fixture
+
+  [HIGH] No .env or secret management documented
+    The project relies entirely on environment variables but there is no
+    .env.example, no README section on setup, and no documentation of
+    required variables. A new developer has no idea what to set.
+    Action: Add a .env.example with all required variables listed (with
+            placeholder values, never real secrets).
+
+  [MEDIUM] No __init__.py for src/ itself
+    The disease_risk_model package has an __init__.py but src/ does not.
+    This can cause import issues depending on how the project is run.
+
+  [MEDIUM] Inconsistent error handling strategy
+    engine.py raises ValueError on missing config.
+    config_loader.py returns None.
+    db.py re-raises the original exception.
+    importer.py re-raises after rollback.
+    There is no unified exception hierarchy (e.g., CropNotFoundError,
+    DatabaseError) and no documented contract for callers.
+
+  [LOW] No requirements.txt or pyproject.toml visible
+    Dependencies (psycopg2, pandas) are used but not declared in any
+    visible dependency file.
+
+  [LOW] Logging is configured in importer.py at module level
+    Line:  logging.basicConfig(level=logging.INFO, ...)
+    Problem: Calling basicConfig in a library module overrides the host
+             application's logging config. This is a well-known Python
+             anti-pattern.
+    Fix:   Remove basicConfig from importer.py. Only configure logging in
+           the application entry point (main.py, CLI script, etc.).
+
+================================================================================
+PRIORITY ACTION LIST (What to fix first)
+================================================================================
+
+  CRITICAL (fix before any production use):
+  1. Add a DB connection pool — the current design will fail under load.
+  2. Remove hardcoded default DB password.
+  3. Write unit tests — especially for engine.py and importer.py.
+  4. Add row-level error handling in importer.py CSV parsing.
+
+  HIGH (fix before code review sign-off):
+  5. Add DB CHECK constraints to schema.sql.
+  6. Add a functional index on lower(crop_name).
+  7. Add cache to CropConfigLoader.get_crop_thresholds.
+  8. Fix the temperature stress asymmetry bug in engine.py.
+  9. Delete dead code in preprocess.py and replace print() with logging.
+
+  MEDIUM (improve code quality):
+  10. Name the weight constants in engine.py.
+  11. Add a .env.example file.
+  12. Unify the exception hierarchy.
+  13. Replace logging.basicConfig() call in importer.py.
+  14. Add column validation to importer.py CSV reader.
+
+================================================================================
+SUMMARY SCORECARD
+================================================================================
+
+  File                  Score    Notes
+  ──────────────────    ─────    ──────────────────────────────────────────
+  engine.py             7/10     Good structure, logic bug in stress formula
+  config_loader.py      7.5/10   Clean, needs caching
+  db.py                 5.5/10   Critical connection pooling & security gaps
+  importer.py           7/10     Good UPSERT, fragile CSV parsing
+  schema.sql            8.5/10   Best file in the project, needs CHECK constraints
+  preprocess.py         5/10     Dead code, no logging, structural issues
+  Overall Architecture  7/10     Good separation of concerns for the size
+  Testing Coverage      1/10     Effectively zero
+  ──────────────────    ─────    ──────────────────────────────────────────
+  OVERALL               6.5/10
+
+This is solid foundational work for a junior/early-mid engineer. The conceptual
+design is correct and readable. With the critical issues above resolved — 
+especially connection pooling, input validation, and test coverage — this would
+be a production-ready 8/10 codebase.
+
+================================================================================
+END OF REVIEW
+================================================================================

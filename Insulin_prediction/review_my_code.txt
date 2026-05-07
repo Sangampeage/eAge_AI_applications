@@ -1,0 +1,13 @@
+Code Quality Review: Insulin Prediction System
+============================================
+Status: Functional Prototype
+
+Core Reality:
+- Data Handling: Good use of 'deque' for sliding window features, which is essential for time-series glucose data.
+- Model Architecture: Logical two-stage approach (Classification for "if" and Regression for "how much") is a sound strategy for medical dosage prediction.
+- Simplicity: The code is concise and avoids over-engineering, making it easy to debug and modify.
+- UI: Real-time metric updates in Streamlit provide immediate feedback, which is critical for monitoring applications.
+
+Potential Improvements:
+- IPC Security: Using a JSON file for data transfer is simple but vulnerable to file locks or corruption if multiple processes write/read simultaneously without locks.
+- Validation: The input data parsing could be more robust to handle malformed strings or outliers in glucose readings.

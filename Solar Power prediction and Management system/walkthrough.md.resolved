@@ -1,0 +1,25 @@
+# Walkthrough: Solar Power Prediction & Management
+
+This guide explains how to run the solar forecasting pipeline and dashboard.
+
+## 1. Run the Inference Pipeline
+Fetch weather data and generate solar predictions for the next 7 days.
+
+```bash
+cd "Solar Power prediction and Management system"
+python inference_pipeline.py
+```
+*Options:* Use `--start YYYY-MM-DD` and `--end YYYY-MM-DD` for historical backfills.
+
+## 2. Launch the Forecast Dashboard
+Visualize the predictions and compare them with actual sensor data.
+
+```bash
+cd "Solar Power prediction and Management system"
+streamlit run app.py
+```
+
+## 3. Usage
+- Select models from the sidebar to display their forecasts.
+- Adjust the "Forecast Horizon" (24h, 48h, 72h).
+- View the "Model Validation" section to see how predictions compare to live sensor readings (requires `sensor_reader.py` to be running).

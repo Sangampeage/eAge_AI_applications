@@ -1,0 +1,22 @@
+# Environments
+.env
+
+
+# Project Specific: Solar Power prediction and Management system
+Solar Power prediction and Management system/venv/
+Solar Power prediction and Management system/__pycache__/
+Solar Power prediction and Management system/solar_data/
+Solar Power prediction and Management system/solar_data_2.0/
+Solar Power prediction and Management system/mlruns/
+Solar Power prediction and Management system/ml_outputs/
+Solar Power prediction and Management system/**/*.png
+Solar Power prediction and Management system/**/*.csv
+Solar Power prediction and Management system/**/*.pkl
+Solar Power prediction and Management system/**/*.h5
+Solar Power prediction and Management system/**/*.keras
+Solar Power prediction and Management system/**/*.pth
+Solar Power prediction and Management system/**/*.joblib
+Solar Power prediction and Management system/**/*.sqlite
+Solar Power prediction and Management system/**/*.db
+    
+
