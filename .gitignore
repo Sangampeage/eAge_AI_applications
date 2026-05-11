@@ -21,7 +21,7 @@ Solar Power prediction and Management system/**/*.db
     
 
 Soil_and_agri_Intelligence/**/*.pkl
-Soil_and_agri_Intelligence/crop_recommendation/src/__pycache__/
-Soil_and_agri_Intelligence/crop_recommendation/src/**/__pycache__/
+Soil_and_agri_Intelligence/src/crop_recommendation/src/__pycache__/
+
 
 face_dist_obj_demo_app/results/
