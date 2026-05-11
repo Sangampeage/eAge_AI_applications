@@ -2,7 +2,7 @@ import streamlit as st
 import os
 from Face_recognition_demo import recognize_faces_in_image
 from Distance_calculation_demo import estimate_distance
-# from Object_detection_demo import detect_objects
+from Object_detection_demo import run_object_detection
 
 st.title("Vision Dashboard")
 
@@ -24,12 +24,12 @@ image_path = os.path.join(IMAGE_FOLDER, selected_image)
 
 if st.button("Run Task"):
     if task == "Face Recognition":
-        img, results = run_face_recognition(image_path)
+        img, results = recognize_faces_in_image(image_path)
         st.image(img)
         st.write(results)
 
     elif task == "Pose Distance":
-        img, distances = run_pose_distance(image_path)
+        img, distances = estimate_distance(image_path)
         st.image(img)
         st.write(distances)
 

@@ -467,3 +467,41 @@
 2026-04-25 15:55:14,601 - INFO - Loading InsightFace and FAISS index...
 2026-04-25 15:55:20,788 - INFO - Loaded 19 known face(s).
 2026-04-25 15:55:20,788 - INFO - Loaded 19 known face(s).
+2026-05-11 13:17:22,864 - INFO - Loading InsightFace and FAISS index...
+2026-05-11 13:17:29,472 - INFO - Loaded 19 known face(s).
+2026-05-11 13:20:21,649 - INFO - Loading InsightFace and FAISS index...
+2026-05-11 13:20:21,649 - INFO - Loading InsightFace and FAISS index...
+2026-05-11 13:20:25,973 - INFO - Loaded 19 known face(s).
+2026-05-11 13:20:25,973 - INFO - Loaded 19 known face(s).
+2026-05-11 13:20:36,244 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:20:36,244 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:20:36,254 - INFO -  Unknown face detected.
+2026-05-11 13:20:36,254 - INFO -  Unknown face detected.
+2026-05-11 13:20:36,260 - INFO -  Unknown face detected.
+2026-05-11 13:20:36,260 - INFO -  Unknown face detected.
+2026-05-11 13:20:36,464 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132036.jpg
+2026-05-11 13:20:36,464 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132036.jpg
+2026-05-11 13:21:27,565 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:27,565 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:27,577 - INFO -  Unknown face detected.
+2026-05-11 13:21:27,577 - INFO -  Unknown face detected.
+2026-05-11 13:21:27,593 - INFO -  Unknown face detected.
+2026-05-11 13:21:27,593 - INFO -  Unknown face detected.
+2026-05-11 13:21:27,804 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132127.jpg
+2026-05-11 13:21:27,804 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132127.jpg
+2026-05-11 13:21:29,756 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:29,756 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:29,762 - INFO -  Unknown face detected.
+2026-05-11 13:21:29,762 - INFO -  Unknown face detected.
+2026-05-11 13:21:29,770 - INFO -  Unknown face detected.
+2026-05-11 13:21:29,770 - INFO -  Unknown face detected.
+2026-05-11 13:21:29,947 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132129.jpg
+2026-05-11 13:21:29,947 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132129.jpg
+2026-05-11 13:21:59,782 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:59,782 - INFO - Detected 2 face(s) in: C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Images\office_test_image3.jpg
+2026-05-11 13:21:59,790 - INFO -  Unknown face detected.
+2026-05-11 13:21:59,790 - INFO -  Unknown face detected.
+2026-05-11 13:21:59,799 - INFO -  Unknown face detected.
+2026-05-11 13:21:59,799 - INFO -  Unknown face detected.
+2026-05-11 13:21:59,978 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132159.jpg
+2026-05-11 13:21:59,978 - INFO - Saved recognized image to: recognized\office_test_image3_20260511-132159.jpg

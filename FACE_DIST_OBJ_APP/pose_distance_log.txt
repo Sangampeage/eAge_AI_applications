@@ -464,3 +464,6 @@
 2026-04-25 15:54:53,920 - INFO - YOLOv8 Pose model loaded.
 2026-04-25 15:55:20,951 - INFO - YOLOv8 Pose model loaded.
 2026-04-25 15:55:20,951 - INFO - YOLOv8 Pose model loaded.
+2026-05-11 13:17:39,506 - INFO - YOLOv8 Pose model loaded.
+2026-05-11 13:20:26,160 - INFO - YOLOv8 Pose model loaded.
+2026-05-11 13:20:26,160 - INFO - YOLOv8 Pose model loaded.

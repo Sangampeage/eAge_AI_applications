@@ -63,7 +63,7 @@ while True:
         else:
             print("Failed to decode JPEG data.")
         
-        i += 1
-    
+        i += 1  
 
 port.close()
+
