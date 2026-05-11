@@ -311,3 +311,5 @@
 2026-05-11 14:59:34,156 - INFO - Loaded 19 known face(s).
 2026-05-11 14:59:34,156 - INFO - Loaded 19 known face(s).
 2026-05-11 14:59:34,156 - INFO - Loaded 19 known face(s).
+2026-05-11 15:38:54,497 - INFO - Loading InsightFace and FAISS index...
+2026-05-11 15:38:58,726 - INFO - Loaded 19 known face(s).

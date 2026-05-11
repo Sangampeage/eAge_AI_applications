@@ -35,7 +35,7 @@ from .model_wrapper import CropModel
 
 logger = logging.getLogger(__name__)
 
-_ARTIFACTS_DIR = os.path.join(os.path.dirname(__file__), "artifacts")
+_ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "artifacts")
 
 
 class CropRecommender:
@@ -88,53 +88,55 @@ class CropRecommender:
             input_data: Raw sensor payload as a dict or JSON string.
 
         Returns:
-            Pipeline-compatible dict with key "model" == "crop_recommendation".
-
-        Raises:
-            ValueError:        On validation / threshold failures (bad sensor data).
-            FileNotFoundError: If model artifacts are missing.
+            Pipeline-compatible structured dictionary with status and data.
         """
-        # ── parse JSON string if needed ──────────────────────────────────────
-        if isinstance(input_data, str):
-            try:
+        try:
+            # ── parse JSON string if needed ──────────────────────────────────────
+            if isinstance(input_data, str):
                 input_data = json.loads(input_data)
-            except json.JSONDecodeError as exc:
-                raise ValueError(
-                    f"Input is not valid JSON: {exc}. "
-                    "Provide a well-formed JSON string or a Python dict."
-                ) from exc
+                
+            # ── validate & threshold-check ───────────────────────────────────────
+            validated: SoilInput = validate_input(input_data)
 
-        # ── validate & threshold-check ───────────────────────────────────────
-        validated: SoilInput = validate_input(input_data)
+            # ── feature engineering ───────────────────────────────────────────────
+            features = self._build_features(validated)
 
-        # ── feature engineering ───────────────────────────────────────────────
-        features = self._build_features(validated)
+            # ── model inference ───────────────────────────────────────────────────
+            predictions = self.model_wrapper.predict(features)
 
-        # ── model inference ───────────────────────────────────────────────────
-        predictions = self.model_wrapper.predict(features)
+            # ── build pipeline-compatible output ─────────────────────────────────
+            top_crops_for_orchestrator = [
+                {"crop": p.crop, "score": round(p.confidence, 4)}
+                for p in predictions
+            ]
+            raw_crops = [
+                {"crop": p.crop, "confidence": round(p.confidence, 4)}
+                for p in predictions
+            ]
 
-        # ── build pipeline-compatible output ─────────────────────────────────
-        top_crops_for_orchestrator = [
-            {"crop": p.crop, "score": round(p.confidence, 4)}
-            for p in predictions
-        ]
-        raw_crops = [
-            {"crop": p.crop, "confidence": round(p.confidence, 4)}
-            for p in predictions
-        ]
+            logger.info(
+                "Recommendation complete. Top crop: %s (%.4f)",
+                predictions[0].crop,
+                predictions[0].confidence,
+            )
 
-        result = {
-            "model": "crop_recommendation",
-            "top_crops": top_crops_for_orchestrator,   # consumed by orchestrator
-            "raw_recommended_crops": raw_crops,         # full detail for logging/debug
-        }
+            return {
+                "status": "success",
+                "message": "Crop recommendation generated successfully.",
+                "data": {
+                    "model": "crop_recommendation",
+                    "top_crops": top_crops_for_orchestrator,
+                    "raw_recommended_crops": raw_crops,
+                }
+            }
 
-        logger.info(
-            "Recommendation complete. Top crop: %s (%.4f)",
-            predictions[0].crop,
-            predictions[0].confidence,
-        )
-        return result
+        except Exception as e:
+            logger.error("Error during crop recommendation: %s", str(e))
+            return {
+                "status": "failed",
+                "message": str(e),
+                "data": None
+            }
 
     def recommend_json(self, input_data: Union[str, Dict[str, Any]]) -> str:
         """Same as recommend() but returns a pretty-printed JSON string."""

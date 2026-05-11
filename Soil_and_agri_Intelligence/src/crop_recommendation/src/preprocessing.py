@@ -4,7 +4,7 @@ import joblib
 import os
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
-_ARTIFACTS_DIR = os.path.join(os.path.dirname(__file__), "artifacts")
+_ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "artifacts")
 
 class Preprocessor:
     def __init__(self):

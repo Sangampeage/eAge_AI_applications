@@ -5,10 +5,19 @@ from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 import numpy as np
+import os
+import json
+import logging
 
 from preprocessing import Preprocessor
 
-df = pd.read_csv(r"C:\Users\sanga\OneDrive\Desktop\eAge_AI_Applications\Soil_and_agri_Intelligence\data\Crop_recommendation_dataset.csv")
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.abspath(os.path.join(BASE_DIR, "../../../data/sensor_Crop_Dataset (1).csv"))
+
+df = pd.read_csv(DATA_PATH)
 
 pre = Preprocessor()
 pre.fit(df)
@@ -24,7 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 rf = RandomForestClassifier(n_estimators=300, random_state=42)
 rf.fit(X_train, y_train)
 
-joblib.dump(rf, "artifacts/rf_model.pkl")
+joblib.dump(rf, os.path.join(BASE_DIR, "artifacts/rf_model.pkl"))
 
 # ---------------- XGB ----------------
 xgb = XGBClassifier(
@@ -36,7 +45,7 @@ xgb = XGBClassifier(
 )
 xgb.fit(X_train, y_train)
 
-joblib.dump(xgb, "artifacts/xgb_model.pkl")
+joblib.dump(xgb, os.path.join(BASE_DIR, "artifacts/xgb_model.pkl"))
 
 # ---------------- Evaluation ----------------
 def top_k_accuracy(model, X, y, k=3):
@@ -44,8 +53,26 @@ def top_k_accuracy(model, X, y, k=3):
     top_k = np.argsort(probs, axis=1)[:, -k:]
     return np.mean([y[i] in top_k[i] for i in range(len(y))])
 
-print("RF Accuracy:", accuracy_score(y_test, rf.predict(X_test)))
-print("RF Top3:", top_k_accuracy(rf, X_test, y_test))
-
-print("XGB Accuracy:", accuracy_score(y_test, xgb.predict(X_test)))
-print("XGB Top3:", top_k_accuracy(xgb, X_test, y_test))
+try:
+    results = {
+        "status": "success",
+        "message": "Model training completed successfully.",
+        "data": {
+            "RandomForest": {
+                "accuracy": accuracy_score(y_test, rf.predict(X_test)),
+                "top3_accuracy": top_k_accuracy(rf, X_test, y_test)
+            },
+            "XGBoost": {
+                "accuracy": accuracy_score(y_test, xgb.predict(X_test)),
+                "top3_accuracy": top_k_accuracy(xgb, X_test, y_test)
+            }
+        }
+    }
+    logger.info("Training Results: %s", json.dumps(results, indent=2))
+except Exception as e:
+    logger.error("Error during evaluation: %s", str(e))
+    logger.info(json.dumps({
+        "status": "failed",
+        "message": f"Training failed during evaluation: {str(e)}",
+        "data": None
+    }, indent=2))

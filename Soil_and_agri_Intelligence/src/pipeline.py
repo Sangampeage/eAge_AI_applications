@@ -44,7 +44,7 @@ from typing import Any, Dict, Optional
 # decision_orchestrator, llm_reasoner, disease_risk_model) resolve correctly
 # when this script is run directly:  python pipeline.py
 # ─────────────────────────────────────────────────────────────────────────────
-_SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+_SRC_DIR = "src"
 if _SRC_DIR not in sys.path:
     sys.path.insert(0, _SRC_DIR)
 
@@ -101,66 +101,84 @@ class AgriculturalPipeline:
                            Defaults to all-zero (no active climate risk).
 
         Returns:
+            A structured dict with status and data:
             {
-                "crop_recommendation": <raw model output>,
-                "orchestrator_output": <adjusted advisory payload>,
-                "advisory_report":     <LLM-generated text report>
+                "status": "success",
+                "message": "...",
+                "data": {
+                    "crop_recommendation": <raw model output>,
+                    "orchestrator_output": <adjusted advisory payload>,
+                    "advisory_report":     <LLM-generated text report>
+                }
             }
-
-        Raises:
-            ValueError:        On sensor validation / threshold failure.
-            FileNotFoundError: If ML model artifacts are missing.
         """
-        climate_risk = climate_risk or {}
+        try:
+            climate_risk = climate_risk or {}
 
         # ── Step 1: Crop Recommendation ───────────────────────────────────────
-        logger.info("Step 1 — Running CropRecommender …")
-        crop_output = self.recommender.recommend(sensor_input)
-        logger.info(
-            "Recommendation: top crop = %s (score=%.4f)",
-            crop_output["top_crops"][0]["crop"] if crop_output["top_crops"] else "N/A",
-            crop_output["top_crops"][0]["score"] if crop_output["top_crops"] else 0.0,
-        )
+            logger.info("Step 1 — Running CropRecommender …")
+            crop_output_resp = self.recommender.recommend(sensor_input)
+            if crop_output_resp.get("status") != "success":
+                return crop_output_resp
+                
+            crop_output = crop_output_resp["data"]
+            logger.info(
+                "Recommendation: top crop = %s (score=%.4f)",
+                crop_output["top_crops"][0]["crop"] if crop_output.get("top_crops") else "N/A",
+                crop_output["top_crops"][0]["score"] if crop_output.get("top_crops") else 0.0,
+            )
 
-        # ─────────────────────────────────────────────────────────────────────
-        # DISEASE RISK MODEL (disabled — re-enable block below when DB ready)
-        # ─────────────────────────────────────────────────────────────────────
-        # top_crop_name = crop_output["top_crops"][0]["crop"]
-        # disease_output = calculate_disease_risk(
-        #     crop_name=top_crop_name,
-        #     current_temperature=sensor_input["temperature"],
-        #     current_rainfall=sensor_input.get("rainfall", 0),
-        #     current_altitude=sensor_input.get("altitude", 0),
-        # )
-        # disease_risk = {"risk_score": disease_output["risk_score"]}
-        # logger.info(
-        #     "Disease risk for %s: %.2f (%s)",
-        #     top_crop_name, disease_output["risk_score"], disease_output["risk_level"]
-        # )
-        disease_risk: Dict[str, Any] = {}   # placeholder until DB enabled
-        # ─────────────────────────────────────────────────────────────────────
+            # ─────────────────────────────────────────────────────────────────────
+            # DISEASE RISK MODEL (disabled — re-enable block below when DB ready)
+            # ─────────────────────────────────────────────────────────────────────
+            # top_crop_name = crop_output["top_crops"][0]["crop"]
+            # disease_output = calculate_disease_risk(
+            #     crop_name=top_crop_name,
+            #     current_temperature=sensor_input["temperature"],
+            #     current_rainfall=sensor_input.get("rainfall", 0),
+            #     current_altitude=sensor_input.get("altitude", 0),
+            # )
+            # disease_risk = {"risk_score": disease_output["risk_score"]}
+            # logger.info(
+            #     "Disease risk for %s: %.2f (%s)",
+            #     top_crop_name, disease_output["risk_score"], disease_output["risk_level"]
+            # )
+            disease_risk: Dict[str, Any] = {}   # placeholder until DB enabled
+            # ─────────────────────────────────────────────────────────────────────
 
-        # ── Step 2: Decision Orchestration ────────────────────────────────────
-        logger.info("Step 2 — Running DecisionOrchestrator …")
-        orchestrator_output = self.orchestrator.orchestrate(
-            crop_recommendation_output=crop_output,
-            climate_risk=climate_risk,
-            disease_risk=disease_risk,
-        )
-        logger.info(
-            "Orchestration complete. Confidence=%.2f, Alerts=%s",
-            orchestrator_output["decision_confidence"],
-            orchestrator_output["alerts"],
-        )
+            # ── Step 2: Decision Orchestration ────────────────────────────────────
+            logger.info("Step 2 — Running DecisionOrchestrator …")
+            orchestrator_output = self.orchestrator.orchestrate(
+                crop_recommendation_output=crop_output,
+                climate_risk=climate_risk,
+                disease_risk=disease_risk,
+            )
+            logger.info(
+                "Orchestration complete. Confidence=%.2f, Alerts=%s",
+                orchestrator_output["decision_confidence"],
+                orchestrator_output["alerts"],
+            )
 
-        # ── Step 3: LLM Advisory ──────────────────────────────────────────────
-        logger.info("Step 3 — Generating LLM advisory …")
-        advisory_text = self.llm_engine.generate_advisory(orchestrator_output)
+            # ── Step 3: LLM Advisory ──────────────────────────────────────────────
+            logger.info("Step 3 — Generating LLM advisory …")
+            advisory_text = self.llm_engine.generate_advisory(orchestrator_output)
 
+            return {
+                "status": "success",
+                "message": "Pipeline completed successfully",
+                "data": {
+                    "crop_recommendation": crop_output,
+                    "orchestrator_output": orchestrator_output,
+                    "advisory_report":     advisory_text,
+                }
+            }
+            
+        except Exception as exc:
+            logger.exception("Pipeline error: %s", exc)
         return {
-            "crop_recommendation": crop_output,
-            "orchestrator_output": orchestrator_output,
-            "advisory_report":     advisory_text,
+            "status": "failed",
+            "message": str(exc),
+            "data": None
         }
 
 
@@ -202,24 +220,8 @@ if __name__ == "__main__":
             climate_risk=sample_climate_risk,
         )
 
-        print("\n" + "═" * 70)
-        print("CROP RECOMMENDATION OUTPUT")
-        print("═" * 70)
-        print(json.dumps(result["crop_recommendation"], indent=2))
+        logger.info("Pipeline Execution Completed")
+        logger.info("Final Response: %s", json.dumps(result, indent=2))
 
-        print("\n" + "═" * 70)
-        print("ORCHESTRATOR OUTPUT")
-        print("═" * 70)
-        print(json.dumps(result["orchestrator_output"], indent=2))
-
-        print("\n" + "═" * 70)
-        print("LLM ADVISORY REPORT")
-        print("═" * 70)
-        print(result["advisory_report"])
-
-    except ValueError as ve:
-        logger.error("Sensor validation failed: %s", ve)
-    except FileNotFoundError as fe:
-        logger.error("Model artifact missing: %s", fe)
     except Exception as exc:
-        logger.exception("Pipeline error: %s", exc)
+        logger.exception("Pipeline execution failed: %s", exc)

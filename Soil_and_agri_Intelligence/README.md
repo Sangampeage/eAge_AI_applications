@@ -92,7 +92,7 @@ cp .env.example .env
 
 ```bash
 cd src/crop_recommendation/src
-python train.py --data ../../../data/Crop_recommendation_dataset.csv
+python train.py --data data/sensor_Crop_Dataset (1).csv
 ```
 
 ### 4. Run the pipeline

@@ -1,5 +1,10 @@
 import pandas as pd
 import os
+import json
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def analyze_datasets(data_dir):
     # file1 = os.path.join(data_dir, "Crop recommendation dataset.csv")
@@ -24,26 +29,40 @@ def analyze_datasets(data_dir):
                 for col in soil_cols:
                     unique_soils.update(df[col].dropna().unique())
             except Exception as e:
-                print(f"Error reading {file_path}: {e}")
+                logger.error(f"Error reading {file_path}: {e}")
+                return {
+                    "status": "failed",
+                    "message": f"Error reading {file_path}: {e}",
+                    "data": None
+                }
         else:
-            print(f"File not found: {file_path}")
+            logger.error(f"File not found: {file_path}")
+            return {
+                "status": "failed",
+                "message": f"File not found: {file_path}",
+                "data": None
+            }
 
     # Standardize names (lowercase, strip whitespace) to avoid duplicates
     unique_crops_cleaned = sorted(list(set(str(c).strip().lower() for c in unique_crops)))
     unique_soils_cleaned = sorted(list(set(str(s).strip().lower() for s in unique_soils)))
 
-    print(f"--- Analysis Results ---")
-    print(f"Total Unique Crops: {len(unique_crops_cleaned)}")
-    print(f"List of Unique Crops:\n{unique_crops_cleaned}\n")
-
-    print(f"Total Unique Soil Types: {len(unique_soils_cleaned)}")
-    print(f"List of Unique Soil Types:\n{unique_soils_cleaned}\n")
-
-    return unique_crops_cleaned, unique_soils_cleaned
+    result = {
+        "status": "success",
+        "message": "Datasets analyzed successfully.",
+        "data": {
+            "total_unique_crops": len(unique_crops_cleaned),
+            "unique_crops": unique_crops_cleaned,
+            "total_unique_soils": len(unique_soils_cleaned),
+            "unique_soils": unique_soils_cleaned
+        }
+    }
+    return result
 
 if __name__ == "__main__":
     # Path to the data directory based on the project structure
     # This assumes the script is in src/ and data is in data/
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, "data")
-    analyze_datasets(data_dir)
+    result = analyze_datasets(data_dir)
+    logger.info("Analysis Results: %s", json.dumps(result, indent=2))

@@ -23,7 +23,7 @@ from db.db import (
 # ------------------ Initialize Database ------------------
 init_db()
 
-INPUT_DIR = r"C:\Users\sanga\OneDrive\Desktop\Projects2.0\DEMO APPLICATION\Images"
+INPUT_DIR = "../Images"
 REFRESH_INTERVAL = 3  # seconds
 
 st.set_page_config(layout="centered")
