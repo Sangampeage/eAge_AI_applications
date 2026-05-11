@@ -1,0 +1,106 @@
+
+
+
+
+
+import streamlit as st
+import os
+import time
+
+from pipelines.face_recognition import recognize_faces_in_image
+from pipelines.pose_distance import process_image
+from pipelines.object_detection import run_object_detection
+
+from db.db import (
+    init_db,
+    insert_input_image,
+    get_new_images,
+    mark_processing,
+    mark_done,
+    mark_failed
+)
+
+# ------------------ Initialize Database ------------------
+init_db()
+
+INPUT_DIR = r"C:\Users\sanga\OneDrive\Desktop\Projects2.0\DEMO APPLICATION\Images"
+REFRESH_INTERVAL = 3  # seconds
+
+st.set_page_config(layout="centered")
+st.title("Vision Dashboard – Auto Processing Mode")
+
+# ------------------ Load Images ------------------
+if not os.path.exists(INPUT_DIR):
+    st.error("Input directory does not exist")
+    st.stop()
+
+image_files = sorted(
+    f for f in os.listdir(INPUT_DIR)
+    if f.lower().endswith((".jpg", ".jpeg", ".png"))
+)
+
+# Insert images into DB (idempotent)
+for f in image_files:
+    image_path = os.path.join(INPUT_DIR, f)
+    insert_input_image(f, image_path)
+
+# Fetch NEW images from DB
+new_images = get_new_images()
+
+st.subheader("Incoming Images")
+
+if not new_images:
+    st.info("Waiting for new images...")
+else:
+    for image_id, filename, image_path in new_images:
+        st.markdown("---")
+        st.subheader(f"Processing: {filename}")
+
+        # mark PROCESSING
+        mark_processing(image_id)
+
+        try:
+            # -------- Face Recognition --------
+            st.markdown("### 🧑 Face Recognition")
+            img_face, face_results = recognize_faces_in_image(image_path)
+
+            if img_face is not None:
+                st.image(img_face, channels="BGR")
+            if face_results:
+                st.json(face_results)
+            else:
+                st.info("No faces detected")
+
+            # -------- Pose Distance --------
+            st.markdown("### 🧍 Pose Distance Estimation")
+            img_pose, distances = process_image(image_path)
+
+            if img_pose is not None:
+                st.image(img_pose, channels="BGR")
+            if distances:
+                st.write([
+                    f"Person {i+1}: {d/100:.2f} m" if d else f"Person {i+1}: N/A"
+                    for i, d in enumerate(distances)
+                ])
+            else:
+                st.info("No people detected")
+
+            # -------- Object Detection --------
+            st.markdown("### 📦 Object Detection")
+            img_obj = run_object_detection(image_path)
+
+            if img_obj is not None:
+                st.image(img_obj, channels="BGR")
+            else:
+                st.info("No objects detected")
+
+            # mark DONE
+            mark_done(image_id)
+
+        except Exception as e:
+            mark_failed(image_id)
+            st.error(f"Processing failed: {e}")
+
+# ------------------ Auto Refresh Loop ------------------
+time.sleep(REFRESH_INTERVAL)
+st.rerun()
