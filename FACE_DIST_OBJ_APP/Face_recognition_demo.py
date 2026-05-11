@@ -11,7 +11,7 @@ import time
 
 # ------------------- Configuration ---------------------
 SIMILARITY_THRESHOLD = 0.6
-KNOWN_FACES_NPZ = 'face_embeddings.npz'  # Should contain 'embeddings' and 'names'
+KNOWN_FACES_NPZ = 'face_embeddings.npz'
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMAGE_FOLDER = os.path.join(ROOT_DIR, "Images")
 processed_files = set()
@@ -31,7 +31,6 @@ logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
 
-
 # ------------------- FAISS Index Load ---------------------
 def load_faiss_index(npz_path):
     data = np.load(npz_path)
@@ -41,6 +40,7 @@ def load_faiss_index(npz_path):
     index = faiss.IndexFlatIP(embeddings.shape[1])  # Cosine similarity
     index.add(embeddings)
     return index, names
+
 
 # ------------------- Face Recognition ---------------------
 def recognize_face(embedding, index, names, threshold):
@@ -53,6 +53,7 @@ def recognize_face(embedding, index, names, threshold):
         return names[best_match_idx], similarity
     return "Unknown", similarity
 
+
 # ------------------- Load Models ---------------------
 logger.info("Loading InsightFace and FAISS index...")
 model = FaceAnalysis(name='buffalo_l', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
@@ -63,51 +64,85 @@ try:
     logger.info(f"Loaded {len(known_names)} known face(s).")
 except Exception as e:
     logger.error(f"Failed to load FAISS index: {e}")
-    exit(1)
+    faiss_index, known_names = None, []
+
 
 # ------------------- Image Handler ---------------------
 def recognize_faces_in_image(image_path):
+    """
+    Detects and recognizes faces in the given image.
+
+    Returns:
+        tuple: (annotated_image_rgb, results_list)
+            - annotated_image_rgb: numpy array (H, W, 3) in RGB, ready for st.image()
+            - results_list: list of dicts with keys 'label' and 'similarity'
+        Returns (None, []) on failure.
+    """
     image = cv2.imread(image_path)
     if image is None:
         logger.warning(f"Failed to load image: {image_path}")
-        return
+        return None, []
+
+    if faiss_index is None:
+        logger.error("FAISS index not loaded.")
+        return None, []
 
     rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     faces = model.get(rgb_image)
 
+    results = []
+
     if len(faces) == 0:
         logger.info(f"No faces detected in: {image_path}")
-        return
+        # Return the unmodified image so Streamlit can still display it
+        return cv2.cvtColor(image, cv2.COLOR_BGR2RGB), []
 
     logger.info(f"Detected {len(faces)} face(s) in: {image_path}")
 
     for face in faces:
         x1, y1, x2, y2 = face.bbox.astype(int)
         label = "Unknown"
-        color = (0, 0, 255)
+        similarity = 0.0
+        color = (255, 0, 0)  # Red for unknown (RGB)
 
         if hasattr(face, 'embedding'):
-            label, similarity = recognize_face(face.embedding, faiss_index, known_names, SIMILARITY_THRESHOLD)
+            label, similarity = recognize_face(
+                face.embedding, faiss_index, known_names, SIMILARITY_THRESHOLD
+            )
             if label != "Unknown":
                 log_msg = f" Face recognized: {label} (similarity: {similarity:.2f})"
-                label = f"{label.split('.')[0]} ({similarity:.2f})"
-                color = (0, 255, 0)
+                color = (0, 255, 0)  # Green for known (RGB)
             else:
                 log_msg = " Unknown face detected."
             logger.info(log_msg)
 
-        # Draw
-        cv2.rectangle(image, (x1, y1), (x2, y2), color, 2)
-        cv2.putText(image, label, (x1, y1 - 10), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
+        display_label = f"{str(label).split('.')[0]} ({similarity:.2f})" if label != "Unknown" else "Unknown"
 
-    # Display
-    timestamp = time.strftime("%Y%m%d-%H%M%S")
-    filename = os.path.splitext(os.path.basename(image_path))[0]
-    output_path = os.path.join("recognized", f"{filename}_{timestamp}.jpg")
-    os.makedirs("recognized", exist_ok=True)
-    cv2.imwrite(output_path, image)
-    logger.info(f"Saved recognized image to: {output_path}")
+        # Draw on the RGB image directly (model.get() uses RGB input)
+        cv2.rectangle(rgb_image, (x1, y1), (x2, y2), color, 2)
+        cv2.putText(
+            rgb_image, display_label, (x1, max(y1 - 10, 10)),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2
+        )
+
+        results.append({
+            "label": str(label).split('.')[0],
+            "similarity": round(float(similarity), 3),
+        })
+
+    # Optionally save to disk (non-blocking — errors are swallowed)
+    try:
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        filename = os.path.splitext(os.path.basename(image_path))[0]
+        output_path = os.path.join("recognized", f"{filename}_{timestamp}.jpg")
+        os.makedirs("recognized", exist_ok=True)
+        cv2.imwrite(output_path, cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR))
+        logger.info(f"Saved recognized image to: {output_path}")
+    except Exception as save_err:
+        logger.warning(f"Could not save annotated image: {save_err}")
+
+    return rgb_image, results
+
 
 # ------------------- Watchdog Handler ---------------------
 class NewImageHandler(FileSystemEventHandler):
@@ -119,9 +154,10 @@ class NewImageHandler(FileSystemEventHandler):
             image_path = event.src_path
             if image_path not in self.processed:
                 logger.info(f"New image detected: {image_path}")
-                time.sleep(0.5)  # Allow file to fully write
+                time.sleep(0.5)
                 recognize_faces_in_image(image_path)
                 self.processed.add(image_path)
+
 
 # ------------------- Start Folder Monitoring ---------------------
 # if __name__ == "__main__":
@@ -129,7 +165,7 @@ class NewImageHandler(FileSystemEventHandler):
 #     event_handler = NewImageHandler(processed_files)
 #     observer = Observer()
 #     observer.schedule(event_handler, IMAGE_FOLDER, recursive=False)
-
+#
 #     try:
 #         observer.start()
 #         while True:

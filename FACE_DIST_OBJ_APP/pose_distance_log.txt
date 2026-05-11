@@ -467,3 +467,5 @@
 2026-05-11 13:17:39,506 - INFO - YOLOv8 Pose model loaded.
 2026-05-11 13:20:26,160 - INFO - YOLOv8 Pose model loaded.
 2026-05-11 13:20:26,160 - INFO - YOLOv8 Pose model loaded.
+2026-05-11 13:38:01,595 - INFO - YOLOv8 Pose model loaded.
+2026-05-11 13:38:51,881 - INFO - Person 1: 1.85m in office_test_image3.jpg
