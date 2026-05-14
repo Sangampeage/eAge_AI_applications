@@ -232,6 +232,8 @@ class DecisionOrchestrator:
 
         return {
             "recommended_crops": final_crops,
+            "location":          crop_recommendation_output.get("location"),
+            "weather":           crop_recommendation_output.get("weather"),
             "risk_summary": {
                 "heat_risk":    heat_risk,
                 "drought_risk": drought_risk,

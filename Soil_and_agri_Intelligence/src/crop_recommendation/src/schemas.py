@@ -8,6 +8,7 @@ class SoilInput:
     K: float
     ph: float
     temperature: float
+    location: str
     moisture: float
     ec: float
 

@@ -33,6 +33,9 @@ from .validation import validate_input
 from .preprocessing import load_encoders
 from .model_wrapper import CropModel
 
+# Import weather utility from local directory
+from . import weather
+
 logger = logging.getLogger(__name__)
 
 _ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "artifacts")
@@ -98,6 +101,15 @@ class CropRecommender:
             # ── validate & threshold-check ───────────────────────────────────────
             validated: SoilInput = validate_input(input_data)
 
+            # ── fetch weather data ───────────────────────────────────────────────
+            weather_report = {}
+            try:
+                weather_report = weather.get_complete_weather(validated.location)
+                logger.info("Weather data fetched for: %s", validated.location)
+            except Exception as we:
+                logger.warning("Could not fetch weather for %s: %s", validated.location, we)
+                weather_report = {"error": f"Weather fetch failed: {str(we)}"}
+
             # ── feature engineering ───────────────────────────────────────────────
             features = self._build_features(validated)
 
@@ -125,6 +137,8 @@ class CropRecommender:
                 "message": "Crop recommendation generated successfully.",
                 "data": {
                     "model": "crop_recommendation",
+                    "location": validated.location,
+                    "weather": weather_report,
                     "top_crops": top_crops_for_orchestrator,
                     "raw_recommended_crops": raw_crops,
                 }

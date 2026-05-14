@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────────────────────
 # REQUIRED FIELDS
 # ──────────────────────────────────────────────────────────────────────────────
-REQUIRED_FIELDS = ["soil", "N", "P", "K", "ph", "temperature", "moisture", "ec"]
+REQUIRED_FIELDS = ["soil", "N", "P", "K", "ph", "temperature", "moisture", "ec", "location"]
 
 # ──────────────────────────────────────────────────────────────────────────────
 # SENSOR THRESHOLDS
@@ -97,7 +97,8 @@ def _check_numeric_fields(data: dict) -> Dict[str, float]:
       - Within the configured sensor threshold range
     Returns a dict of field -> float-cast value.
     """
-    numeric_fields = REQUIRED_FIELDS[1:]  # everything except 'soil'
+    # everything except 'soil' and 'location'
+    numeric_fields = [f for f in REQUIRED_FIELDS if f not in ["soil", "location"]]
     result: Dict[str, float] = {}
 
     for field in numeric_fields:
@@ -193,6 +194,7 @@ def validate_input(data: dict) -> SoilInput:
         K=numeric["K"],
         ph=numeric["ph"],
         temperature=numeric["temperature"],
+        location=data["location"],
         moisture=numeric["moisture"],
         ec=numeric["ec"],
     )

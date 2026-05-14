@@ -203,6 +203,7 @@ if __name__ == "__main__":
         "temperature": 28.0,
         "moisture":    70.0,
         "ec":           1.2,
+        "location":    "Samastipur"
     }
 
     # Optional climate risk from external weather API / climate model
