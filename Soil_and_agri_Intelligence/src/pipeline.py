@@ -44,7 +44,8 @@ from typing import Any, Dict, Optional
 # decision_orchestrator, llm_reasoner, disease_risk_model) resolve correctly
 # when this script is run directly:  python pipeline.py
 # ─────────────────────────────────────────────────────────────────────────────
-_SRC_DIR = "src"
+from pathlib import Path
+_SRC_DIR = str(Path(__file__).resolve().parent)
 if _SRC_DIR not in sys.path:
     sys.path.insert(0, _SRC_DIR)
 

@@ -2,9 +2,16 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+from pathlib import Path
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
-_ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "artifacts")
+# Allow container to override artifacts dir via env var
+_MODEL_DIR_ENV = os.environ.get("MODEL_DIR")
+if _MODEL_DIR_ENV:
+    _ARTIFACTS_DIR = Path(_MODEL_DIR_ENV)
+else:
+    _ARTIFACTS_DIR = Path(__file__).resolve().parent / "artifacts"
+
 
 class Preprocessor:
     def __init__(self):
@@ -17,10 +24,11 @@ class Preprocessor:
         self.soil_encoder.fit(df[["SOIL"]])
         self.label_encoder.fit(df["CROPS"])
 
-        os.makedirs(_ARTIFACTS_DIR, exist_ok=True)
+        _ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
-        joblib.dump(self.soil_encoder, os.path.join(_ARTIFACTS_DIR, "soil_encoder.pkl"))
-        joblib.dump(self.label_encoder, os.path.join(_ARTIFACTS_DIR, "label_encoder.pkl"))
+        joblib.dump(self.soil_encoder, _ARTIFACTS_DIR / "soil_encoder.pkl")
+        joblib.dump(self.label_encoder, _ARTIFACTS_DIR / "label_encoder.pkl")
+
     def transform(self, df):
         soil_encoded = self.soil_encoder.transform(df[["SOIL"]])
 
@@ -33,6 +41,6 @@ class Preprocessor:
 
 
 def load_encoders():
-    soil_encoder = joblib.load(os.path.join(_ARTIFACTS_DIR, "soil_encoder.pkl"))
-    label_encoder = joblib.load(os.path.join(_ARTIFACTS_DIR, "label_encoder.pkl"))
-    return soil_encoder, label_encoder
+    soil_encoder = joblib.load(_ARTIFACTS_DIR / "soil_encoder.pkl")
+    label_encoder = joblib.load(_ARTIFACTS_DIR / "label_encoder.pkl")
+    return soil_encoder, label_encoder

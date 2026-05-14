@@ -38,7 +38,14 @@ from . import weather
 
 logger = logging.getLogger(__name__)
 
-_ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "artifacts")
+from pathlib import Path
+
+# Allow container to override artifacts dir via env var
+_MODEL_DIR_ENV = os.environ.get("MODEL_DIR")
+if _MODEL_DIR_ENV:
+    _ARTIFACTS_DIR = Path(_MODEL_DIR_ENV)
+else:
+    _ARTIFACTS_DIR = Path(__file__).resolve().parent / "artifacts"
 
 
 class CropRecommender:
@@ -53,9 +60,11 @@ class CropRecommender:
                         Defaults to artifacts/rf_model.pkl relative to this file.
         """
         if model_path is None:
-            model_path = os.path.join(_ARTIFACTS_DIR, "rf_model.pkl")
+            model_path = _ARTIFACTS_DIR / "rf_model.pkl"
+        else:
+            model_path = Path(model_path)
 
-        if not os.path.exists(model_path):
+        if not model_path.exists():
             raise FileNotFoundError(
                 f"Model artifact not found at: {model_path}. "
                 "Run train.py first to generate the model."

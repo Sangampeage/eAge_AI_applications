@@ -8,14 +8,26 @@ import numpy as np
 import os
 import json
 import logging
+from pathlib import Path
 
 from preprocessing import Preprocessor
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.abspath(os.path.join(BASE_DIR, "../../../data/sensor_Crop_Dataset (1).csv"))
+# Allow container to override paths via env vars
+_DATA_DIR_ENV = os.environ.get("DATA_DIR")
+if _DATA_DIR_ENV:
+    DATA_PATH = Path(_DATA_DIR_ENV) / "sensor_Crop_Dataset (1).csv"
+else:
+    # Fallback to local structure
+    DATA_PATH = Path(__file__).resolve().parent.parent.parent.parent / "data" / "sensor_Crop_Dataset (1).csv"
+
+_MODEL_DIR_ENV = os.environ.get("MODEL_DIR")
+if _MODEL_DIR_ENV:
+    _ARTIFACTS_DIR = Path(_MODEL_DIR_ENV)
+else:
+    _ARTIFACTS_DIR = Path(__file__).resolve().parent / "artifacts"
 
 df = pd.read_csv(DATA_PATH)
 
@@ -33,7 +45,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 rf = RandomForestClassifier(n_estimators=300, random_state=42)
 rf.fit(X_train, y_train)
 
-joblib.dump(rf, os.path.join(BASE_DIR, "artifacts/rf_model.pkl"))
+_ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
+joblib.dump(rf, _ARTIFACTS_DIR / "rf_model.pkl")
 
 # ---------------- XGB ----------------
 xgb = XGBClassifier(
@@ -45,7 +58,7 @@ xgb = XGBClassifier(
 )
 xgb.fit(X_train, y_train)
 
-joblib.dump(xgb, os.path.join(BASE_DIR, "artifacts/xgb_model.pkl"))
+joblib.dump(xgb, _ARTIFACTS_DIR / "xgb_model.pkl")
 
 # ---------------- Evaluation ----------------
 def top_k_accuracy(model, X, y, k=3):
