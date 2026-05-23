@@ -29,10 +29,10 @@ Solar_project_trichy/backend/**/*.csv
 Solar_project_trichy/backend/**/*.pkl
 Solar_project_trichy/backend/**/*.h5
 Solar_project_trichy/backend/**/*.keras
-Soil_project_tirchy/backend/**/*.pth
-Soil_project_tirchy/backend/**/*.joblib
-Soil_project_tirchy/backend/**/*.sqlite
-Soil_project_tirchy/backend/**/*.db
+Solar_project_trichy/backend/**/*.pth
+Solar_project_trichy/backend/**/*.joblib
+Solar_project_trichy/backend/**/*.sqlite
+Solar_project_trichy/backend/**/*.db
 
 
 face_dist_obj_demo_app/results/
