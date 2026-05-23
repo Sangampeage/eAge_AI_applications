@@ -23,12 +23,12 @@ Solar Power prediction and Management system/**/*.db
 Soil_and_agri_Intelligence/**/*.pkl
 Soil_and_agri_Intelligence/src/crop_recommendation/src/__pycache__/
 
-Soil_project_tirchy/backend/venv/
-Soil_project_tirchy/backend/__pycache__/
-Soil_project_tirchy/backend/**/*.csv
-Soil_project_tirchy/backend/**/*.pkl
-Soil_project_tirchy/backend/**/*.h5
-Soil_project_tirchy/backend/**/*.keras
+Solar_project_trichy/backend/venv/
+Solar_project_trichy/backend/__pycache__/
+Solar_project_trichy/backend/**/*.csv
+Solar_project_trichy/backend/**/*.pkl
+Solar_project_trichy/backend/**/*.h5
+Solar_project_trichy/backend/**/*.keras
 Soil_project_tirchy/backend/**/*.pth
 Soil_project_tirchy/backend/**/*.joblib
 Soil_project_tirchy/backend/**/*.sqlite
