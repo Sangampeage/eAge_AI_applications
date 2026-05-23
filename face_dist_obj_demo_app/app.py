@@ -6,6 +6,12 @@
 import streamlit as st
 import os
 import time
+import sys
+
+# Ensure the current directory is in sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
 
 from pipelines.face_recognition import recognize_faces_in_image
 from pipelines.pose_distance import process_image
@@ -17,7 +23,10 @@ from db.db import (
     get_new_images,
     mark_processing,
     mark_done,
-    mark_failed
+    mark_failed,
+    insert_face_result,
+    insert_pose_result,
+    insert_object_result
 )
 
 # ------------------ Initialize Database ------------------
@@ -60,12 +69,19 @@ else:
         mark_processing(image_id)
 
         try:
+            # Create results directories
+            os.makedirs("results/face", exist_ok=True)
+            os.makedirs("results/distance", exist_ok=True)
+            os.makedirs("results/object", exist_ok=True)
+
             # -------- Face Recognition --------
             st.markdown("### 🧑 Face Recognition")
             img_face, face_results = recognize_faces_in_image(image_path)
 
             if img_face is not None:
                 st.image(img_face, channels="BGR")
+                output_path = os.path.join("results/face", filename)
+                insert_face_result(image_id, output_path, face_results)
             if face_results:
                 st.json(face_results)
             else:
@@ -77,6 +93,8 @@ else:
 
             if img_pose is not None:
                 st.image(img_pose, channels="BGR")
+                output_path = os.path.join("results/distance", filename)
+                insert_pose_result(image_id, output_path, len(distances), distances)
             if distances:
                 st.write([
                     f"Person {i+1}: {d/100:.2f} m" if d else f"Person {i+1}: N/A"
@@ -87,10 +105,12 @@ else:
 
             # -------- Object Detection --------
             st.markdown("### 📦 Object Detection")
-            img_obj = run_object_detection(image_path)
+            img_obj, obj_results = run_object_detection(image_path)
 
             if img_obj is not None:
                 st.image(img_obj, channels="BGR")
+                output_path = os.path.join("results/object", filename)
+                insert_object_result(image_id, output_path, len(obj_results), obj_results)
             else:
                 st.info("No objects detected")
 

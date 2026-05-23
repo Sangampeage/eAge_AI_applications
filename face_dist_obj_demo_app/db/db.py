@@ -157,7 +157,19 @@
 
 
 import sqlite3
+import json
+import numpy as np
 from pathlib import Path
+
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
 
 DB_PATH = Path("vision2.db")
 
@@ -306,13 +318,80 @@ def mark_failed(image_id):
 
 
 
-def clear_all_data():
+def insert_face_result(input_image_id, output_path, results, status="SUCCESS"):
     conn = get_connection()
     cursor = conn.cursor()
-
-    cursor.execute("DELETE FROM input_images")
+    cursor.execute("""
+        INSERT INTO face_results (
+            input_image_id,
+            output_image_path,
+            faces_detected,
+            result_json,
+            status
+        )
+        VALUES (?, ?, ?, ?, ?)
+    """, (
+        input_image_id,
+        output_path,
+        len(results),
+        json.dumps(results, cls=NpEncoder),
+        status
+    ))
     conn.commit()
     conn.close()
 
+def insert_pose_result(input_image_id, output_path, persons_detected, distances, status="SUCCESS"):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO pose_results (
+            input_image_id,
+            output_image_path,
+            persons_detected,
+            distances,
+            status
+        )
+        VALUES (?, ?, ?, ?, ?)
+    """, (
+        input_image_id,
+        output_path,
+        persons_detected,
+        json.dumps(distances, cls=NpEncoder),
+        status
+    ))
+    conn.commit()
+    conn.close()
+
+def insert_object_result(input_image_id, output_path, objects_detected, results_json, status="SUCCESS"):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO object_results (
+            input_image_id,
+            output_image_path,
+            objects_detected,
+            result_json,
+            status
+        )
+        VALUES (?, ?, ?, ?, ?)
+    """, (
+        input_image_id,
+        output_path,
+        objects_detected,
+        json.dumps(results_json, cls=NpEncoder),
+        status
+    ))
+    conn.commit()
+    conn.close()
+
+def clear_all_data():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM input_images")
+    cursor.execute("DELETE FROM face_results")
+    cursor.execute("DELETE FROM pose_results")
+    cursor.execute("DELETE FROM object_results")
+    conn.commit()
+    conn.close()
 
 print("DB PATH:", DB_PATH.resolve())

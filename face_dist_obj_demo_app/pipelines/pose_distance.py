@@ -123,7 +123,9 @@ def process_image(image_path):
 
     # 🔹 SAVE OUTPUT
     filename = os.path.basename(image_path)
-    save_path = os.path.join("results/distance", filename)
+    output_dir = "results/distance"
+    os.makedirs(output_dir, exist_ok=True)
+    save_path = os.path.join(output_dir, filename)
     cv2.imwrite(save_path, image)
 
     return image, distances

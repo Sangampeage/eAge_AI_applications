@@ -1,185 +1,28 @@
-2026-01-16 14:27:11,632 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:28:21,288 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:28:21,288 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:29:42,533 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:29:42,533 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:29:42,533 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:30:54,490 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:30:54,490 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:30:54,490 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 14:30:54,490 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:47:21,321 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:47:21,321 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:47:21,321 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:47:21,321 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:47:21,321 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 15:58:39,193 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 15:58:39,193 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 15:58:39,193 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 15:58:39,193 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 15:58:39,193 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 15:58:39,211 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-155839.jpg
-2026-01-16 15:58:39,211 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-155839.jpg
-2026-01-16 15:58:39,211 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-155839.jpg
-2026-01-16 15:58:39,211 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-155839.jpg
-2026-01-16 15:58:39,211 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-155839.jpg
-2026-01-16 16:02:19,448 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:02:19,448 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:02:19,448 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:02:19,448 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:02:19,448 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:02:19,461 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160219.jpg
-2026-01-16 16:02:19,461 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160219.jpg
-2026-01-16 16:02:19,461 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160219.jpg
-2026-01-16 16:02:19,461 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160219.jpg
-2026-01-16 16:02:19,461 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160219.jpg
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:03:04,254 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,430 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:13,446 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160813.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,191 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:25,215 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160825.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,848 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:26,867 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160826.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,762 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:27,779 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160827.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,371 - INFO - Person 1: 0.80m in WIN_20250721_18_03_43_Pro.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:08:39,397 - INFO - Saved result to data/results\WIN_20250721_18_03_43_Pro_20260116-160839.jpg
-2026-01-16 16:10:17,919 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:13:04,804 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:13:04,804 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:13:36,286 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:13:36,286 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:13:36,286 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:27:24,132 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:27:24,132 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:27:24,132 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:27:24,132 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:31:25,304 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:42:44,001 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:50:25,078 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:50:25,078 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:51:55,965 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:56:20,820 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:58:28,784 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 16:58:28,784 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:05:18,412 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:05:18,412 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:05:18,412 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:16:31,068 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:17:25,482 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:17:25,482 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:21:51,119 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:21:51,119 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:21:51,119 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:44:55,343 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 17:59:38,154 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:00:07,883 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:00:07,883 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:02:42,061 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:05:11,365 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:08:55,125 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:08:55,125 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:24:32,492 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:24:32,492 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:24:32,492 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:19,685 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:19,685 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:19,685 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:19,685 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:46,847 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:46,847 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:46,847 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:46,847 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:31:46,847 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-16 18:41:41,060 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 14:20:57,193 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:40:34,327 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:40:34,327 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:43:47,111 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:43:47,111 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:43:47,111 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:37,759 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:37,759 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:37,759 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:37,759 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:51,179 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:51,179 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:51,179 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:51,179 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 15:44:51,179 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 16:55:21,430 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 17:40:09,475 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 17:40:09,475 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 17:41:00,531 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 17:41:00,531 - INFO - YOLOv8 Pose model loaded.
-2026-01-17 17:41:00,531 - INFO - YOLOv8 Pose model loaded.
-2026-01-19 11:52:57,262 - INFO - YOLOv8 Pose model loaded.
-2026-01-19 12:31:55,739 - INFO - YOLOv8 Pose model loaded.
-2026-01-21 16:50:23,826 - INFO - YOLOv8 Pose model loaded.
-2026-01-21 16:58:40,272 - INFO - YOLOv8 Pose model loaded.
-2026-01-21 16:58:40,272 - INFO - YOLOv8 Pose model loaded.
-2026-05-11 14:12:33,320 - INFO - YOLOv8 Pose model loaded.
-2026-05-11 14:51:54,971 - INFO - YOLOv8 Pose model loaded.
-2026-05-11 14:59:34,322 - INFO - YOLOv8 Pose model loaded.
-2026-05-11 14:59:34,322 - INFO - YOLOv8 Pose model loaded.
-2026-05-11 15:39:04,739 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 12:45:29,373 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:25:15,919 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:25:15,919 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:30:53,741 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:30:53,741 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:30:53,741 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:31:57,041 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:31:57,041 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:31:57,041 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:31:57,041 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:10,288 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:10,288 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:10,288 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:10,288 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:10,288 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:32:27,888 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.
+2026-05-16 13:34:46,819 - INFO - YOLOv8 Pose model loaded.

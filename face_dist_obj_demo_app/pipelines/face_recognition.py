@@ -171,6 +171,7 @@ IMAGE_FOLDER = "input"
 processed_files = set()
 
 # ------------------- Logging ---------------------
+os.makedirs("results", exist_ok=True)
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 file_handler = logging.FileHandler('results/recognition_log.txt', mode='a')
@@ -264,34 +265,13 @@ def recognize_faces_in_image(image_path):
 
     # 🔹 SAVE OUTPUT
     filename = os.path.basename(image_path)
-    save_path = os.path.join("results/face", filename)
+    output_dir = "results/face"
+    os.makedirs(output_dir, exist_ok=True)
+    save_path = os.path.join(output_dir, filename)
     cv2.imwrite(save_path, image)
 
     return image, results
 
-def insert_face_result(input_image_id, output_path, results, status="SUCCESS"):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO face_results (
-            input_image_id,
-            output_image_path,
-            faces_detected,
-            result_json,
-            status
-        )
-        VALUES (?, ?, ?, ?, ?)
-    """, (
-        input_image_id,
-        output_path,
-        len(results),
-        json.dumps(results),
-        status
-    ))
-
-    conn.commit()
-    conn.close()
 
 
 
